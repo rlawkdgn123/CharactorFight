@@ -72,4 +72,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-/CharactorFight/Assets/5.Sprites/Playerble
+*.meta
+*.png
+/CharactorFight/Library
+/CharactorFight/UserSettings

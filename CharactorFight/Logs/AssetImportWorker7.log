@@ -1,0 +1,1480 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.40f1 (157d81624ddf) revision 1408385'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'ko' Physical Memory: 130909 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/User/Desktop/KJH/Unity/CharactorFight/CharactorFight
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+55816
+-job-worker-count
+15
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/User/Desktop/KJH/Unity/CharactorFight/CharactorFight
+C:/Users/User/Desktop/KJH/Unity/CharactorFight/CharactorFight
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [50400]  Target information:
+
+Player connection [50400]  * "[IP] 172.21.1.9 [Port] 0 [Flags] 2 [Guid] 4157762719 [EditorId] 4157762719 [Version] 1048832 [Id] WindowsEditor(7,K-2301160067) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [50400] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [50400] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 15
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.40f1 (157d81624ddf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/User/Desktop/KJH/Unity/CharactorFight/CharactorFight/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2487)
+    Vendor:   NVIDIA
+    VRAM:     12110 MB
+    Driver:   32.0.15.6094
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56028
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.003674 seconds.
+- Loaded All Assemblies, in  0.321 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 239 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.547 seconds
+Domain Reload Profiling: 868ms
+	BeginReloadAssembly (104ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (141ms)
+		LoadAssemblies (102ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (139ms)
+			TypeCache.Refresh (138ms)
+				TypeCache.ScanAssembly (126ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (548ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (507ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (319ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (48ms)
+			ProcessInitializeOnLoadAttributes (95ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.636 seconds
+Refreshing native plugins compatible for Editor in 0.44 ms, found 3 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.585 seconds
+Domain Reload Profiling: 1219ms
+	BeginReloadAssembly (152ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (400ms)
+		LoadAssemblies (304ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (178ms)
+			TypeCache.Refresh (137ms)
+				TypeCache.ScanAssembly (122ms)
+			BuildScriptInfoCaches (33ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (585ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (446ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (261ms)
+			ProcessInitializeOnLoadMethodAttributes (74ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 1.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 198 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6100 unused Assets / (5.0 MB). Loaded Objects now: 6748.
+Memory consumption went from 159.8 MB to 154.7 MB.
+Total: 15.468900 ms (FindLiveObjects: 1.363600 ms CreateObjectMapping: 1.069900 ms MarkObjects: 7.957000 ms  DeleteObjects: 5.073400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 39917.402975 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1149.png
+  artifactKey: Guid(9dcb65112878fc3489162b1fc722a08d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1149.png using Guid(9dcb65112878fc3489162b1fc722a08d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '44370ff94115f4f546cc1c2ca044d838') in 0.1977199 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-116.png
+  artifactKey: Guid(a6c5a518e0a3de0459e4f8ef8ef92c30) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-116.png using Guid(a6c5a518e0a3de0459e4f8ef8ef92c30) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '06611d3c7f32b998dd8a4fba053981a0') in 0.0189077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1177.png
+  artifactKey: Guid(f5e47c93d3171514283f177747022279) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1177.png using Guid(f5e47c93d3171514283f177747022279) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '428c0f8dfaa30d092eba01e712644340') in 0.0165603 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.717119 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1198.png
+  artifactKey: Guid(0abeab189f13cc04aa9df27252d0b953) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1198.png using Guid(0abeab189f13cc04aa9df27252d0b953) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ed345728c1ecf4a5d3e7b7759215a3b7') in 0.0128318 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1217.png
+  artifactKey: Guid(2aa2d7da1ffb0cb40ab956c892581acd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1217.png using Guid(2aa2d7da1ffb0cb40ab956c892581acd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '443c46e6f632e97e58a25748b4dfec4d') in 0.0171332 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1229.png
+  artifactKey: Guid(8126b0961377c904580628675bd17f0a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1229.png using Guid(8126b0961377c904580628675bd17f0a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ab4f49dba7839663935af3fbda41d098') in 0.0146075 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1228.png
+  artifactKey: Guid(2cc8c1f28f5995140a7e0017e96d233d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1228.png using Guid(2cc8c1f28f5995140a7e0017e96d233d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3756c685e3d520eeecce03e6dfd4899e') in 0.0126193 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1215.png
+  artifactKey: Guid(3da03fe14941d914a81d8a2eb16caed1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1215.png using Guid(3da03fe14941d914a81d8a2eb16caed1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a6d77811d7a639b7bd40589644af4efc') in 0.0124774 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1210.png
+  artifactKey: Guid(e098cdd6efe830a43912933e411bed7b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1210.png using Guid(e098cdd6efe830a43912933e411bed7b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0f089aaa3de97fff4986ce7d2dcc9cf4') in 0.0132435 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1216.png
+  artifactKey: Guid(e1efdf3accdcbf2409fbed4316b4e1f9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1216.png using Guid(e1efdf3accdcbf2409fbed4316b4e1f9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '677358cc9763c56a853904528e861ef7') in 0.0147042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-125.png
+  artifactKey: Guid(ab9afa24757a9b346a259c8e56f3b9ed) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-125.png using Guid(ab9afa24757a9b346a259c8e56f3b9ed) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c419be3e0bb880f67b16f0646c8286d1') in 0.0106814 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.054394 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1258.png
+  artifactKey: Guid(c4c953f0167fc0a48b7eeee5e208264b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1258.png using Guid(c4c953f0167fc0a48b7eeee5e208264b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '85e77a7234938e0bf49f99dea9e7b461') in 0.0130374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1262.png
+  artifactKey: Guid(6722a3635e8489d4dbd1716a14477de4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1262.png using Guid(6722a3635e8489d4dbd1716a14477de4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '644f49a0c8e9efb640b21135852ff5b5') in 0.0116054 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1280.png
+  artifactKey: Guid(12aed5d40faaafb47890dfa84b0e9685) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1280.png using Guid(12aed5d40faaafb47890dfa84b0e9685) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '733bd7140c95bf0c246e33bd9bfb74da') in 0.0142017 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1300.png
+  artifactKey: Guid(92e04a50be252ec488386479733b31a8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1300.png using Guid(92e04a50be252ec488386479733b31a8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4bcfe953262b3b8de245b63958a601f7') in 0.0130644 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1259.png
+  artifactKey: Guid(6523db8ace167724ab42979850314143) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1259.png using Guid(6523db8ace167724ab42979850314143) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cc212af42c2c9957113bdf193f34c586') in 0.0129038 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1284.png
+  artifactKey: Guid(3646ca805973b7549aa066f4db6fae39) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1284.png using Guid(3646ca805973b7549aa066f4db6fae39) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '997a1c5de2f64fe700351d67b4720c79') in 0.0125898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-128.png
+  artifactKey: Guid(2087efc91b1e7f24caed526948aace98) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-128.png using Guid(2087efc91b1e7f24caed526948aace98) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a22c704c7f1283d760e6a792747e30ae') in 0.0124213 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1302.png
+  artifactKey: Guid(ba0808f0d00d5364584fc06b87814399) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1302.png using Guid(ba0808f0d00d5364584fc06b87814399) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a5164aa728a282872747c660f0776b48') in 0.0142327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.808509 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1318.png
+  artifactKey: Guid(d6feaea9dccb8fe4ca81f9370097c7ec) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1318.png using Guid(d6feaea9dccb8fe4ca81f9370097c7ec) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c5c525a9d5196ec92627df2c203b2e36') in 0.0166605 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1341.png
+  artifactKey: Guid(1e2988c2b517c3946b43632ba03a5384) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1341.png using Guid(1e2988c2b517c3946b43632ba03a5384) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b0461f07f13e2328db02f2137e425c10') in 0.0168804 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1366.png
+  artifactKey: Guid(5f6a48bd2c8781c4bac05fb037cbfcbd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1366.png using Guid(5f6a48bd2c8781c4bac05fb037cbfcbd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c66d10f8adb1e6d6fbc8a0d501355972') in 0.0142203 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1363.png
+  artifactKey: Guid(b34809ccdfded444bb064a80f01efd73) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1363.png using Guid(b34809ccdfded444bb064a80f01efd73) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '739aba3da9bddc1a454fc0ef52333648') in 0.0136101 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1335.png
+  artifactKey: Guid(30c0dc70b192ea24e9ad9721dfdd8f41) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1335.png using Guid(30c0dc70b192ea24e9ad9721dfdd8f41) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '88494ade552f4d7da0e234c36231661c') in 0.0122171 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1339.png
+  artifactKey: Guid(04af52149e7076149a29395d0950ac7a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1339.png using Guid(04af52149e7076149a29395d0950ac7a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'faf8af9faf93cf258bf2b70507b35237') in 0.0155108 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1319.png
+  artifactKey: Guid(2fef2b4cb40737842940a0376c3200e0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1319.png using Guid(2fef2b4cb40737842940a0376c3200e0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0b032068762440ad848c10725a891a70') in 0.0161415 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1346.png
+  artifactKey: Guid(5d075b99dd3c64043838f436fe77e35e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1346.png using Guid(5d075b99dd3c64043838f436fe77e35e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8c3939e0f5ee432fac819ca7749dba18') in 0.0145259 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.917237 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1379.png
+  artifactKey: Guid(9f549d773c143e14ebae1b9f87f813d2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1379.png using Guid(9f549d773c143e14ebae1b9f87f813d2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2e2d0eb29814c5d7b28575b945750ee9') in 0.0128771 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1423.png
+  artifactKey: Guid(924a417e3b376474b94be5446b58f623) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1423.png using Guid(924a417e3b376474b94be5446b58f623) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4d428cb42c81eb16129162e338155d03') in 0.0111801 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-142.png
+  artifactKey: Guid(dbc4837ac6717f840ae52d7daba088b7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-142.png using Guid(dbc4837ac6717f840ae52d7daba088b7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '19edbfa010aab77b8969bc0c2ae26186') in 0.0141104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1430.png
+  artifactKey: Guid(0544aadee5960494fbbcd867e419bbff) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1430.png using Guid(0544aadee5960494fbbcd867e419bbff) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b9b8fdcc81273cd71b1d14f34955e103') in 0.0141316 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-143.png
+  artifactKey: Guid(aa847ecd65880cc4d8393c366ec0a47c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-143.png using Guid(aa847ecd65880cc4d8393c366ec0a47c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '03aea49673faba99f46dbb870e0cfe3a') in 0.0163285 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1411.png
+  artifactKey: Guid(011512617ce95724296d0a80e8825032) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1411.png using Guid(011512617ce95724296d0a80e8825032) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e9e28bfdaf45e9d68ed5675368dfdda4') in 0.0159477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1400.png
+  artifactKey: Guid(614f5aaabdc05c247b58183a1e81cdee) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1400.png using Guid(614f5aaabdc05c247b58183a1e81cdee) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9f5b9c5a3c64ca07997efd2ed27b721b') in 0.016272 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1428.png
+  artifactKey: Guid(dacd9625382c7124991c37b0a3440d60) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1428.png using Guid(dacd9625382c7124991c37b0a3440d60) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0100ab43f03271cfeb8984f4e706e2c5') in 0.0172919 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.859116 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1439.png
+  artifactKey: Guid(3b26ca924b2d00e47b09e83fd6632658) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1439.png using Guid(3b26ca924b2d00e47b09e83fd6632658) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '45e473a6b6c40a4f76273b4969bd6d1f') in 0.0120404 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-152.png
+  artifactKey: Guid(0aff587e65675914186f672b673515f0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-152.png using Guid(0aff587e65675914186f672b673515f0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '27325d352b806ea9792c87b5f9fe8c11') in 0.0130832 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1450.png
+  artifactKey: Guid(345fdf0b8cf1b50458f2ba61af055f73) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1450.png using Guid(345fdf0b8cf1b50458f2ba61af055f73) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f3321e13457156575903869c2e38f342') in 0.0142607 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1482.png
+  artifactKey: Guid(0bdfcb6f988ec0d49be293feb878562a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1482.png using Guid(0bdfcb6f988ec0d49be293feb878562a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b748f88ddfc2208150def873fb764370') in 0.0132388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1451.png
+  artifactKey: Guid(8c9b819daacb58240adaeee124e028ba) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1451.png using Guid(8c9b819daacb58240adaeee124e028ba) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e41a7bdbd0a77ea7d7e5901149fd4f3a') in 0.013419 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1481.png
+  artifactKey: Guid(09c8a2f1ef730364ea78b5a5fd480c02) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1481.png using Guid(09c8a2f1ef730364ea78b5a5fd480c02) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'deab74967e331bb3003587d5d1460997') in 0.0128846 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1448.png
+  artifactKey: Guid(91887ada605207f47ac1c0df907d8d04) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1448.png using Guid(91887ada605207f47ac1c0df907d8d04) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'adb7b749ca9cc8f838ce10d55070578d') in 0.0148295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-15.png
+  artifactKey: Guid(c275f56a1d21f914584a9c5e4c55b127) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-15.png using Guid(c275f56a1d21f914584a9c5e4c55b127) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'aa8fa255ce028f483d9addc41324c213') in 0.0150848 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.793118 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1014.png
+  artifactKey: Guid(7cc5aa53a9cc84c479b94336032be5ae) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1014.png using Guid(7cc5aa53a9cc84c479b94336032be5ae) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3613e4a9881e56afec5194f881ce39a0') in 0.0121434 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-172.png
+  artifactKey: Guid(63a0cd6334aae34489a960e76f905850) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-172.png using Guid(63a0cd6334aae34489a960e76f905850) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '060ad96d931e6552fc87f53cf14857d6') in 0.0144275 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-16.png
+  artifactKey: Guid(bcfd6708e04cbac4a98ded8a3c1999e8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-16.png using Guid(bcfd6708e04cbac4a98ded8a3c1999e8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '89b756fe8cfa0390c1eda1a7717b3139') in 0.012838 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-17.png
+  artifactKey: Guid(69a105df206366d4aaf059232233cabc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-17.png using Guid(69a105df206366d4aaf059232233cabc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '58c0c3b04d7ca805664caf91f72fcad2') in 0.0119225 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-170.png
+  artifactKey: Guid(e761d004505483d428880578a5a78fac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-170.png using Guid(e761d004505483d428880578a5a78fac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0bc38e99283d8f76c7466f05dce6d753') in 0.0153933 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-196.png
+  artifactKey: Guid(65ea2ad6b2f047e4eb1727477d0fdcc2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-196.png using Guid(65ea2ad6b2f047e4eb1727477d0fdcc2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '72f49e40245c8e6bee5aaab2307997c1') in 0.0100135 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-204.png
+  artifactKey: Guid(edc0c2846877eec4893d053f2a8d6ddb) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-204.png using Guid(edc0c2846877eec4893d053f2a8d6ddb) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8419fc25b3834abc203ac8c25773b32e') in 0.016477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-186.png
+  artifactKey: Guid(fc5c0aa8aed69f4468e879959bf71a14) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-186.png using Guid(fc5c0aa8aed69f4468e879959bf71a14) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ecb54db582b1711799c8a7d8bb432aaf') in 0.0171643 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-160.png
+  artifactKey: Guid(1ceff0a1439a88b4fa7e779acdb413a4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-160.png using Guid(1ceff0a1439a88b4fa7e779acdb413a4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '067ea4f0985b8ed0aad32563fb9661fc') in 0.0156545 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1037.png
+  artifactKey: Guid(19fd5e6e9b9e26348a7d3494b740d830) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1037.png using Guid(19fd5e6e9b9e26348a7d3494b740d830) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e722745c1d0162c1fcc1898fb6365bc1') in 0.0152308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-206.png
+  artifactKey: Guid(b818d3caebdd6f44c8f045034f14e36b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-206.png using Guid(b818d3caebdd6f44c8f045034f14e36b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1c71dc6dd4112786b28cffb66422c5e6') in 0.0132737 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.633304 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1111.png
+  artifactKey: Guid(ad2cd9390bf040d4f9c0349db8573d2c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-1111.png using Guid(ad2cd9390bf040d4f9c0349db8573d2c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a26ee4cdc3d1dce33783d7fa92c3e5fd') in 0.0149091 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-26.png
+  artifactKey: Guid(ea81d1193b7802b4f8c0a67b7611bc5d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-26.png using Guid(ea81d1193b7802b4f8c0a67b7611bc5d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b3f6b767c3f1e37d0b422dfce4a77dd3') in 0.0111954 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-298.png
+  artifactKey: Guid(74618e7ff3cd3064580a07abc051a565) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-298.png using Guid(74618e7ff3cd3064580a07abc051a565) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c6c1c8af557834bb360d57dbbbe652c2') in 0.0166432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-284.png
+  artifactKey: Guid(593d6426e764b904cbfd7b1082f602c2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-284.png using Guid(593d6426e764b904cbfd7b1082f602c2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e511719203c6deb7e8d2964e870422f4') in 0.0146104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-22.png
+  artifactKey: Guid(85ad30c884b293b44b8b49f09534abd4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-22.png using Guid(85ad30c884b293b44b8b49f09534abd4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '05f1f4186e19ec5f62e29f9d83067ccd') in 0.017147 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-269.png
+  artifactKey: Guid(d0e8b37cc4d25ce409d3595b84e8498f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-269.png using Guid(d0e8b37cc4d25ce409d3595b84e8498f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '332111b098169928167fe4be0a263d70') in 0.0136495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-259.png
+  artifactKey: Guid(038bc94944ab06e40a64653b9c9047fa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-259.png using Guid(038bc94944ab06e40a64653b9c9047fa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8d22f74095c4e8d1bc163beeb9b8d21a') in 0.0146319 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-237.png
+  artifactKey: Guid(8e6613f2d325b6c4a9976b872a459d62) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-237.png using Guid(8e6613f2d325b6c4a9976b872a459d62) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bb2bd27e68fea1583addcfddbe39c438') in 0.0134203 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-229.png
+  artifactKey: Guid(e6bbe410355c4df40aeb40d5906336aa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-229.png using Guid(e6bbe410355c4df40aeb40d5906336aa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '32c496900e059c4a94ecd80598e55e04') in 0.0150486 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-219.png
+  artifactKey: Guid(aadf7740a1a193a4fabff330b27e1315) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-219.png using Guid(aadf7740a1a193a4fabff330b27e1315) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1ab82e5ccaa50357d61cb67d1b7cb37c') in 0.01558 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-296.png
+  artifactKey: Guid(451c3a6d41cabfa4c8d8bea97c7a08e6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-296.png using Guid(451c3a6d41cabfa4c8d8bea97c7a08e6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8148543354c3d75897a6d0258e2cb314') in 0.0153471 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-240.png
+  artifactKey: Guid(e2c0d5c1ed65c5446aa8fca9733c043d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-240.png using Guid(e2c0d5c1ed65c5446aa8fca9733c043d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bb73c40de9a1f5081119e220b9f657e7') in 0.015305 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.517379 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-305.png
+  artifactKey: Guid(572e2fa938658a74aa7e157bc72aacb3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-305.png using Guid(572e2fa938658a74aa7e157bc72aacb3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1ed90d98c612811bf896b8216408210d') in 0.0101896 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-349.png
+  artifactKey: Guid(297eceace4ce94d4d8dd2d634355a296) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-349.png using Guid(297eceace4ce94d4d8dd2d634355a296) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'eadb6db9dff7f082a0a395c417f139db') in 0.0126246 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-388.png
+  artifactKey: Guid(b2aeae97c3d03a14a8a093622cefd135) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-388.png using Guid(b2aeae97c3d03a14a8a093622cefd135) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '42b83f7403813d456ba722d9237a409e') in 0.0119633 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-329.png
+  artifactKey: Guid(b4c92a18d76ec4b44b2f1605b3267bd7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-329.png using Guid(b4c92a18d76ec4b44b2f1605b3267bd7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fad5cfe4f6e1cf3e6eec32f211544133') in 0.0150416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-344.png
+  artifactKey: Guid(071529db3f03c9348bb4b4e88a406a37) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-344.png using Guid(071529db3f03c9348bb4b4e88a406a37) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c92cc2b80134db7211a4b11be987ea09') in 0.0159046 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-364.png
+  artifactKey: Guid(66da598033f0e6a43afb3442c72df1be) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-364.png using Guid(66da598033f0e6a43afb3442c72df1be) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '39db159ca46b8e77acdd6405158300a3') in 0.0189456 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-375.png
+  artifactKey: Guid(42b43439324ffb54fbe86cf23cd1c636) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-375.png using Guid(42b43439324ffb54fbe86cf23cd1c636) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f1886533489d94c15453e395ff1613e4') in 0.0161199 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-366.png
+  artifactKey: Guid(3d98177c2a6221b4b8d997d59dd63947) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-366.png using Guid(3d98177c2a6221b4b8d997d59dd63947) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4aef4541b8e1eca6ba52b0b02904507b') in 0.0156888 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-378.png
+  artifactKey: Guid(3e9c49ecd4211dc46b33e0c782f031f3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-378.png using Guid(3e9c49ecd4211dc46b33e0c782f031f3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8693d2a262420166058abc5581fb1496') in 0.0174365 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-387.png
+  artifactKey: Guid(4bf7e6e777e94324288c2f1b7b8a045c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-387.png using Guid(4bf7e6e777e94324288c2f1b7b8a045c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7a8a634ec82ad7a5256ffbdbca95d535') in 0.0150958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-307.png
+  artifactKey: Guid(6e368f417f177654483e4d0e01e6776f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-307.png using Guid(6e368f417f177654483e4d0e01e6776f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6d7d16336fa152fa42d6b0347b61325f') in 0.0126819 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-35.png
+  artifactKey: Guid(6db8e5ad2f2a829419e2af25ba7a37d0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-35.png using Guid(6db8e5ad2f2a829419e2af25ba7a37d0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b1d5e7c3e15ffdfaf0a7e6b9e2972198') in 0.0124439 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-362.png
+  artifactKey: Guid(e1955f243b2492e439fe293a7bdb0d7b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-362.png using Guid(e1955f243b2492e439fe293a7bdb0d7b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '62d1b2894b478d6c8472ea5ab2442c65') in 0.0135105 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.373399 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-396.png
+  artifactKey: Guid(c570353429cf9164786681d045785d3b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-396.png using Guid(c570353429cf9164786681d045785d3b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd116e8a2cde65aaa7d367d0c9f025584') in 0.009409 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-408.png
+  artifactKey: Guid(4479555b2b57c384da9f4900f4b4923a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-408.png using Guid(4479555b2b57c384da9f4900f4b4923a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f83bf82dec959e5a9f463ee288ae0364') in 0.0154613 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-519.png
+  artifactKey: Guid(9adda17811005bb4cad2758001fb5b8f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-519.png using Guid(9adda17811005bb4cad2758001fb5b8f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e2c7477f162ee4ddb7eb26d53ca51ded') in 0.0138766 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-398.png
+  artifactKey: Guid(bb02da738459857439d6eacb02b213f2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-398.png using Guid(bb02da738459857439d6eacb02b213f2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'eb7765bcb11063cc59c60168cfda3e98') in 0.014758 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-444.png
+  artifactKey: Guid(e267179d5fd4e8b4881ce56aa3650d10) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-444.png using Guid(e267179d5fd4e8b4881ce56aa3650d10) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd04ff71e126c2dda565d5af42a458741') in 0.0149518 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-485.png
+  artifactKey: Guid(393348f7b3e478d4ea9284b19e0a0521) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-485.png using Guid(393348f7b3e478d4ea9284b19e0a0521) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9fc429422628b22d88c5f8ad3fc2a22b') in 0.0149291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-491.png
+  artifactKey: Guid(1038a72b7f8bfc14892d3c18e3ee068e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-491.png using Guid(1038a72b7f8bfc14892d3c18e3ee068e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4ab8853111de1612bb0ea43597fbb07a') in 0.0162282 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-481.png
+  artifactKey: Guid(f2c346a9fde0f894e94a19438d6455ea) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-481.png using Guid(f2c346a9fde0f894e94a19438d6455ea) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b0314fbb74accf37883e8cf6184fcad3') in 0.0163565 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-415.png
+  artifactKey: Guid(724531f2749e46746b26ff7d94a688e8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-415.png using Guid(724531f2749e46746b26ff7d94a688e8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1f20cb7940ca40922d62256642fc1f57') in 0.0163385 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-473.png
+  artifactKey: Guid(096e4753947c6544ab8723102fed5368) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-473.png using Guid(096e4753947c6544ab8723102fed5368) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '76153bd12eb7e0d597282fc7c466e76a') in 0.0134777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-401.png
+  artifactKey: Guid(5a488951358e98f40914978cb00cc38c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-401.png using Guid(5a488951358e98f40914978cb00cc38c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd31ed7e4de40bfa0f7acc8e7a8607be0') in 0.0150739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-509.png
+  artifactKey: Guid(28b151304dac5a84a823f881349f0fd3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-509.png using Guid(28b151304dac5a84a823f881349f0fd3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3c8ea692b1344843b8f9e987d9cd6814') in 0.0175639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-422.png
+  artifactKey: Guid(6413597b75a483b46a8e1368b33a7ecd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-422.png using Guid(6413597b75a483b46a8e1368b33a7ecd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'afe2b16436766ed9544c27e1df6b631e') in 0.0151608 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-511.png
+  artifactKey: Guid(bd0861dc8cc13f249873f03af4b51c71) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-511.png using Guid(bd0861dc8cc13f249873f03af4b51c71) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd5e76e7702bed2d51b920432985ff56b') in 0.0149009 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-443.png
+  artifactKey: Guid(e0c55162991d270498a3e94546c4f944) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-443.png using Guid(e0c55162991d270498a3e94546c4f944) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '147e26b8c612e169c6db98078a9342e4') in 0.0150209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-495.png
+  artifactKey: Guid(bccff291a9520664faad948c69b96b0a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-495.png using Guid(bccff291a9520664faad948c69b96b0a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '10837f6f5f2b819a060d17ad08b3e05b') in 0.0150758 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-407.png
+  artifactKey: Guid(7c42d1af814aaa04dbaa754d60d7c7d9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-407.png using Guid(7c42d1af814aaa04dbaa754d60d7c7d9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ac9d8a0556ab7bb5be49f960d0959f68') in 0.0172013 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-440.png
+  artifactKey: Guid(7cbc8cac1889c194eb1b2d66176b9206) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-440.png using Guid(7cbc8cac1889c194eb1b2d66176b9206) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '70865c0e7ef14f456097415896de9ee9') in 0.0155526 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.103517 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-53.png
+  artifactKey: Guid(856a49e77e965b44a92b541d6c3b211b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-53.png using Guid(856a49e77e965b44a92b541d6c3b211b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1d6e95830bf6c65426ce7619e3a7fc03') in 0.0114432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-630.png
+  artifactKey: Guid(3c544f5460f1cad42b9ec9127b32bda5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-630.png using Guid(3c544f5460f1cad42b9ec9127b32bda5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fd871d5ebb4fbda3aeaa2ca43fca835d') in 0.0149211 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-583.png
+  artifactKey: Guid(532671aafaa1aea47ab5a19dcc0bd05e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-583.png using Guid(532671aafaa1aea47ab5a19dcc0bd05e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'eb4447a463fedb87ac949709ac12db0a') in 0.0154534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-646.png
+  artifactKey: Guid(43a2f28623d0e0e4fb1967c5deee8fb2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-646.png using Guid(43a2f28623d0e0e4fb1967c5deee8fb2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9925423ecb56b1a55610ac7fe9d75822') in 0.0148059 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-566.png
+  artifactKey: Guid(e8c250f8868c07142914ec84577e3d93) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-566.png using Guid(e8c250f8868c07142914ec84577e3d93) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8dac9025fdfb94a224a10d6b597f759d') in 0.0179587 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-60.png
+  artifactKey: Guid(67c8040c5a670874493c311f86df0850) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-60.png using Guid(67c8040c5a670874493c311f86df0850) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9ff314e1f116c01a2ef7b439d31ba344') in 0.0257402 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-642.png
+  artifactKey: Guid(25bdecc7f92a1494a95cf95fa1726f0e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-642.png using Guid(25bdecc7f92a1494a95cf95fa1726f0e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3e6b80649fab315b2f2f7f585d12de30') in 0.020107 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-535.png
+  artifactKey: Guid(8f62638535b40944a922f46db94cc55b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-535.png using Guid(8f62638535b40944a922f46db94cc55b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1db8b0b95e8a78ac8392e09bbb622b64') in 0.0169293 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-631.png
+  artifactKey: Guid(d9da7398c7e0f3840aed6c1907bc9b1b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-631.png using Guid(d9da7398c7e0f3840aed6c1907bc9b1b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dd4046909d482a7ed4035a8ddbf12562') in 0.0166132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-59.png
+  artifactKey: Guid(1441d97a69f056e4ab2f86a7acf16eb8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-59.png using Guid(1441d97a69f056e4ab2f86a7acf16eb8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4d81778fd395d818de1193bf9390b3eb') in 0.0151278 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-531.png
+  artifactKey: Guid(37955c9e46f31f2458e52cbaea8b43aa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-531.png using Guid(37955c9e46f31f2458e52cbaea8b43aa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '92ce42dc3348d2dcbc8a5b2a5dd977b1') in 0.0170534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-596.png
+  artifactKey: Guid(f4bf3c79b3005724e97f912dde77c0f6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-596.png using Guid(f4bf3c79b3005724e97f912dde77c0f6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bc1e95f071eed70961037131e858b7e4') in 0.0187397 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-607.png
+  artifactKey: Guid(bcf464c1e52a7c046917401be9719480) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-607.png using Guid(bcf464c1e52a7c046917401be9719480) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fd4e2133e4f57d473259a0217136bf9b') in 0.0179881 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-632.png
+  artifactKey: Guid(bcb60ce9adeca9e48917eadd02d941c0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-632.png using Guid(bcb60ce9adeca9e48917eadd02d941c0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '63f3b369d008f3ce5fb194ef6e9e7232') in 0.0174077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-550.png
+  artifactKey: Guid(395b7381e01444d4cb43973542ec8003) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-550.png using Guid(395b7381e01444d4cb43973542ec8003) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c3c01d91e2fabc7b033b456140b8c45c') in 0.0175049 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-594.png
+  artifactKey: Guid(b1720240b0f1a814794da6079ea5773b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-594.png using Guid(b1720240b0f1a814794da6079ea5773b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9ce3b7e4bafd06530bf5e80ae1113d23') in 0.0200427 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-782.png
+  artifactKey: Guid(c060d45adb023794892868a614c38a39) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-782.png using Guid(c060d45adb023794892868a614c38a39) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '09eb2fd5047ec7bfbc93ecb3b0f71f7d') in 0.0150905 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-718.png
+  artifactKey: Guid(a913d8d82d4711843a1cd1348ffabe4b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-718.png using Guid(a913d8d82d4711843a1cd1348ffabe4b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cef14a6349166482c77121ffce2fa3cb') in 0.0159749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-777.png
+  artifactKey: Guid(09e6da9da08f4e54db5fd972097a332c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-777.png using Guid(09e6da9da08f4e54db5fd972097a332c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '754651f5292f9e48e6d87e96f4c72a65') in 0.0122278 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-747.png
+  artifactKey: Guid(20c33c7d59529e04faa71d230a5bedf9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-747.png using Guid(20c33c7d59529e04faa71d230a5bedf9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e1389aab050969bcfd82b2ee92fee4e7') in 0.0155644 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-664.png
+  artifactKey: Guid(8c568aa6e860efb44aea2313f73a7354) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-664.png using Guid(8c568aa6e860efb44aea2313f73a7354) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2f6098efa8303fb567cde15cb6ad4e7c') in 0.0168031 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-76.png
+  artifactKey: Guid(759d894e07c937d459d8221f3ec9555d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-76.png using Guid(759d894e07c937d459d8221f3ec9555d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '805a8f8284f31d33ff1c467a1cfcd1f8') in 0.0156816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-800.png
+  artifactKey: Guid(8235edb76c1c0fc45ac37f886ea77608) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-800.png using Guid(8235edb76c1c0fc45ac37f886ea77608) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '915b10dd2de14470ce113d07cd798592') in 0.014026 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-765.png
+  artifactKey: Guid(0c7702c90c376c84f9eddd250bb4329c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-765.png using Guid(0c7702c90c376c84f9eddd250bb4329c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'eaa3239c199e36d1b03a6fc7e267b963') in 0.0146048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-711.png
+  artifactKey: Guid(6535cabf8ecae944a979e5b4f2141e62) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-711.png using Guid(6535cabf8ecae944a979e5b4f2141e62) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9fb0395e70c63964fe85f0d009ebc834') in 0.0139281 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-836.png
+  artifactKey: Guid(171cc577de337ab418c0e2d993cb59bf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-836.png using Guid(171cc577de337ab418c0e2d993cb59bf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '13f75d029789ae61f9f9f5031d11fcd0') in 0.0123872 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-672.png
+  artifactKey: Guid(232faec37810a7c41bc50275570a7b09) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-672.png using Guid(232faec37810a7c41bc50275570a7b09) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '62f9a89cad0a97f92c0f85e07acf10a3') in 0.0135825 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-668.png
+  artifactKey: Guid(7111f785136559f4ca22567f99dc755e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-668.png using Guid(7111f785136559f4ca22567f99dc755e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '300f732cf195921c3be0d125f07c92ef') in 0.0131125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-697.png
+  artifactKey: Guid(c4367ce3b11533b4fafb5eb9f01c3cb5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-697.png using Guid(c4367ce3b11533b4fafb5eb9f01c3cb5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ec540fb74bd283fdb4209840cfab6025') in 0.0180939 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-543.png
+  artifactKey: Guid(5df754ef033d3634d82bc19d23668ae2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-543.png using Guid(5df754ef033d3634d82bc19d23668ae2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8e23e1cac868d1e562fc74659dc5a53b') in 0.014803 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-819.png
+  artifactKey: Guid(775a607dec057cf4790138bf3ead3bca) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-819.png using Guid(775a607dec057cf4790138bf3ead3bca) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '194c8839b65566cf3198a485fbbe8c31') in 0.0162533 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-694.png
+  artifactKey: Guid(c41f5f1d880cc4c4bbd9758109aa8395) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-694.png using Guid(c41f5f1d880cc4c4bbd9758109aa8395) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ac903c4e15e5703973cd06b51f61bd94') in 0.0185905 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-928.png
+  artifactKey: Guid(b7537e95d68b07e45b5d9a5ae2ba1982) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-928.png using Guid(b7537e95d68b07e45b5d9a5ae2ba1982) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1781b14253fa6a2e97cc377fa794dc4d') in 0.0149674 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-88.png
+  artifactKey: Guid(db69923d227672b4380f1dffb84e2c95) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-88.png using Guid(db69923d227672b4380f1dffb84e2c95) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '47a7391d15ad6c4305a9dc80307cbb25') in 0.0175432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-878.png
+  artifactKey: Guid(ffb12b794fb72564f945fb2a76bd0391) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-878.png using Guid(ffb12b794fb72564f945fb2a76bd0391) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '07ca6835bcaa05053933386fa744b89a') in 0.015368 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-881.png
+  artifactKey: Guid(24db701f468285548b86c06e0ef7de14) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-881.png using Guid(24db701f468285548b86c06e0ef7de14) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '779d15e9bc37bd94a0e4350292d4f64c') in 0.0138104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-895.png
+  artifactKey: Guid(bda2db7e0df67764087ab29a90e24371) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-895.png using Guid(bda2db7e0df67764087ab29a90e24371) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3e809aaf2667138cca1c751ff3a4cbc3') in 0.016634 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-872.png
+  artifactKey: Guid(24c03eb588f7ea2439be0ec89958ced2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-872.png using Guid(24c03eb588f7ea2439be0ec89958ced2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b3ed836cf4c2b8a997c361f48f4a986a') in 0.0182228 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-87.png
+  artifactKey: Guid(b0eb65df9445d2747a0d514ce9601f0d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-87.png using Guid(b0eb65df9445d2747a0d514ce9601f0d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '580b365af4a8f90d0be8b17633f88327') in 0.0161141 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-860.png
+  artifactKey: Guid(d82e10dc8b1f21048ae44dc26f2d9367) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-860.png using Guid(d82e10dc8b1f21048ae44dc26f2d9367) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b6999cfe196a01b591c54f243bb39102') in 0.0158534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-942.png
+  artifactKey: Guid(cc60640628af52b479c48894e65ac1ee) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-942.png using Guid(cc60640628af52b479c48894e65ac1ee) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c49b1cdad91f377a6660fbb18dc3590d') in 0.0151007 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-735.png
+  artifactKey: Guid(382482ad23be9b847b8dba9dd844108d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-735.png using Guid(382482ad23be9b847b8dba9dd844108d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '59ed58e5aa448736bfca053c81f3b34e') in 0.0179654 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-736.png
+  artifactKey: Guid(c307d6021ca44be49b305cfb655a1f83) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-736.png using Guid(c307d6021ca44be49b305cfb655a1f83) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '21b5d2d78653de46dc4004775c5da9de') in 0.0132227 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-763.png
+  artifactKey: Guid(9b8c0e6a3f2361e42af6be3213b03105) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-763.png using Guid(9b8c0e6a3f2361e42af6be3213b03105) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e225cd0ea2153b68e5bcc7df7c44dc1b') in 0.0156271 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-780.png
+  artifactKey: Guid(3a84c8dd372cff14980548588fddd5e9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-780.png using Guid(3a84c8dd372cff14980548588fddd5e9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3b1265413cda63b5aea698bba5daaf46') in 0.0212878 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-700.png
+  artifactKey: Guid(4ec169df5cc7ca341b8171f71c31f5a2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-700.png using Guid(4ec169df5cc7ca341b8171f71c31f5a2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6eb7ed32210b69828c7404a4f482f6f7') in 0.0156547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-90.png
+  artifactKey: Guid(520ca813800db7d428d4b0a6cfc2488a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-90.png using Guid(520ca813800db7d428d4b0a6cfc2488a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '83c97264b37cd26857789050c146930a') in 0.0173566 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-980.png
+  artifactKey: Guid(e1c36761136413e41b662cc6e95ceb89) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-980.png using Guid(e1c36761136413e41b662cc6e95ceb89) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7f85f65647331c308978425e2aee5c15') in 0.0171537 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-956.png
+  artifactKey: Guid(b7c4fd817fbb06c4f8935ed7d198dbf8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-956.png using Guid(b7c4fd817fbb06c4f8935ed7d198dbf8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ee2d36de17d63c9790b491c86afa1ca6') in 0.0211767 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-979.png
+  artifactKey: Guid(d009ae23f4820d045b13158fcb883a23) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-979.png using Guid(d009ae23f4820d045b13158fcb883a23) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f45d70dc6ba7807d68cdf85ffaae94f3') in 0.0172205 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-964.png
+  artifactKey: Guid(160956345e536d34696f93b9748c5dc8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-964.png using Guid(160956345e536d34696f93b9748c5dc8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '28738fbd16e3041071dd35bb86bbf903') in 0.0168802 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro.png
+  artifactKey: Guid(35d2ced7501eecb4794eae7ccb660110) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro.png using Guid(35d2ced7501eecb4794eae7ccb660110) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd52443845883e27573721937d5a6acb8') in 0.0187675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-791.png
+  artifactKey: Guid(dd2e86db7617c664d8fbfd20f8be8279) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-791.png using Guid(dd2e86db7617c664d8fbfd20f8be8279) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '108fd966175cdf2c69aaef8d8a917260') in 0.0145867 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-846.png
+  artifactKey: Guid(a4b0ca598d51de04e9d38941b71470dc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-846.png using Guid(a4b0ca598d51de04e9d38941b71470dc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a1adbd64cb659553372e59c9228b791e') in 0.017161 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-918.png
+  artifactKey: Guid(58a3027d50d2c9149b6eb1895a16a1f3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-918.png using Guid(58a3027d50d2c9149b6eb1895a16a1f3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b25d806523828f701b17954435cb22ee') in 0.0162524 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-98.png
+  artifactKey: Guid(ed1b72c91cb04294cae82eb8a5d166aa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-98.png using Guid(ed1b72c91cb04294cae82eb8a5d166aa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2b05ac1e14cb6076d2e36b084bf866af') in 0.0148381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-750.png
+  artifactKey: Guid(cb83ebd33653e9346b47cd54a31bf1f6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-750.png using Guid(cb83ebd33653e9346b47cd54a31bf1f6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3fb646999b2adad3b57dd2eca848ab8b') in 0.0157017 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-99.png
+  artifactKey: Guid(a420f9ecbec10a94e9aa88ce8948e5ce) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-99.png using Guid(a420f9ecbec10a94e9aa88ce8948e5ce) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8a3801d721860121819ec8115c87616e') in 0.0157139 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-843.png
+  artifactKey: Guid(fb3e09c2bab50fd4889698bf086fd7f2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-843.png using Guid(fb3e09c2bab50fd4889698bf086fd7f2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ca0bdfb1dee8c3f325b25812cc598611') in 0.0132695 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-748.png
+  artifactKey: Guid(c9d50d32b341c174a9d287c73ac50075) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-748.png using Guid(c9d50d32b341c174a9d287c73ac50075) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3b74e47562c8c0111e4598c3c882ebbc') in 0.0170657 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-903.png
+  artifactKey: Guid(a7768821529f24442b349283f415b56a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-903.png using Guid(a7768821529f24442b349283f415b56a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '63e0ec2db540fe3dc4feebe003da9743') in 0.0153897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-722.png
+  artifactKey: Guid(5a73a582981f9d54196bd95ef5e0ea5e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-722.png using Guid(5a73a582981f9d54196bd95ef5e0ea5e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '05973f774f66c9a6af18be19b1d296d5') in 0.0163997 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-600.png
+  artifactKey: Guid(6b4c1451619509a4a821fdc7c2c8f834) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-600.png using Guid(6b4c1451619509a4a821fdc7c2c8f834) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3ba67c9b574c1c7dc857fb528751c0c3') in 0.0151574 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-730.png
+  artifactKey: Guid(74ae6fea991d2b04dba19f7352176da4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/5.Sprites/Playerble/OnePiece/Zoro/Roronoa Zoro-730.png using Guid(74ae6fea991d2b04dba19f7352176da4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cea6bbde3e2b4fe252618f074834bc12') in 0.0139411 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
