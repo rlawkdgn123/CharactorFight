@@ -113,6 +113,7 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] protected StartEnd doubleTapCurTime = new StartEnd(0,0);// 더블탭 감지 타이머
     [SerializeField] protected StartEnd doubleTapDetectTime = new StartEnd(0.3f,0.1f); // 더블탭 감지 활성 시간
     [SerializeField] protected int tapCount; // 더블탭 카운트
+    [SerializeField] protected bool isDoubleTap; // 더블탭 여부
 
     [SerializeField] protected Vector2 moveInput; //입력 방향
     [SerializeField] protected TouchingDirection td; //땅이나 벽에 닿아있는 방향을 판단
@@ -164,26 +165,23 @@ public class PlayerBase : MonoBehaviour
             }
             else if (doubleTapCurTime.start < doubleTapDetectTime.start && tapCount == 2)
             {
-                IsRun = true;
-                flag = true;
-                return flag;
+                isDoubleTap = true;
+                return true;
             }
         }
 
-        if (IsRun && moveInput.x == 0)
+        if (isDoubleTap && moveInput.x == 0)
         {
             doubleTapCurTime.end += Time.deltaTime;
             if (doubleTapCurTime.end >= doubleTapDetectTime.end)
             {
                 doubleTapCurTime.start = 0;
                 doubleTapCurTime.end = 0;
-                IsRun = false;
-                flag = false;
+                isDoubleTap = false;
                 tapCount = 0;
-                return flag;
+                return false;
             }
         }
-
         return flag;
     }
 }

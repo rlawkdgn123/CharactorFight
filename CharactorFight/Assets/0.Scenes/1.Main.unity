@@ -1066,7 +1066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195894938290138444, guid: b815e7c423f748046b629e7f183366af, type: 3}
       propertyPath: doubleTapDetectTime.start
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

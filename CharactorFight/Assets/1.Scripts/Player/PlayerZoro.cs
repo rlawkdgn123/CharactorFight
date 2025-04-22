@@ -81,16 +81,20 @@ public class PlayerZoro : PlayerBase
                 }
             }
         }
-            if (IsAlive)
-                IsMove = moveInput != Vector2.zero;
-            else
-                IsMove = false;
+        if (IsAlive)
+            IsMove = moveInput != Vector2.zero;
+        else
+            IsMove = false;
 
-            if (!allWaysRun)
-            {
-                DoubleTap(IsRun); // ´õºíÅÇ °¨Áö
-            }
-            DoubleTap(IsDash); // ´õºíÅÇ °¨Áö
+        if (!allWaysRun)
+        {
+            IsRun = DoubleTap(IsRun); // ´õºíÅÇ °¨Áö
+        }
+        else
+        {
+            IsDash = DoubleTap(IsDash); // ´õºíÅÇ °¨Áö
+        }
+            
             SetFacingDirection(); // ¹æÇâ ÇÃ¸³
     }
     private void FixedUpdate()
