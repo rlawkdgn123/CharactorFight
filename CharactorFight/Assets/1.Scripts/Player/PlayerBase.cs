@@ -3,7 +3,11 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-
+using static UnityEngine.RuleTile.TilingRuleOutput;
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(TouchingDirection))]
 public class PlayerBase : MonoBehaviour
 {
     public enum PlayerChoice
@@ -49,35 +53,14 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] protected bool IsRun; // 달리기 여부
     [SerializeField] protected bool IsDash; // 대쉬 여부
     [SerializeField] protected bool IsChoice; // 선택 여부
-    public bool IsAlive // 생존 여부
-    {
-        get
-        {
-            return anim.GetBool(AnimationStrings.isAlive);
-        }
-    }
-    /*
-         //캐릭터가 올바르게 이동하고 있는지 여부
-    public bool IsFacingRight
-    {
-        get { return _isFacingRight; }
-        private set
-        {
-            if (_isFacingRight != value)
-            {
-                //캐릭터 스프라이트 좌우 반전
-                transform.localScale *= new Vector2(-1, 1);
-            }
-            _isFacingRight = value;
-        }
-    }
-     */
+    [SerializeField] protected bool IsAlive = true; // 선택 여부
+
     [SerializeField] protected float CurrentMoveSpeed { // 지상/공중 상태에 따른 현재 이동속도
         get // 조건 받아 반환
         {
             if (IsMove && !td.IsOnWall) // 걷고있으면 && 벽에 충돌하지 않은 상태면
             {
-                if (td.IsGrounded && IsRun) // 지상일 때
+                if (td.IsGrounded) // 지상일 때
                 {
                     if (IsRun)  // 달리기일 때
                     {
@@ -139,6 +122,57 @@ public class PlayerBase : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
         td = gameObject.GetComponent<TouchingDirection>();
+    }
+    // 방향전환
+    private void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+    protected void SetFacingDirection()
+    {
+        if (moveInput.x > 0 && transform.localScale.x < 0)
+            Flip();
+        // 왼쪽으로 가는 중이고, 현재 오른쪽을 보고 있으면 Flip() 호출
+        else if (moveInput.x < 0 && transform.localScale.x > 0)
+            Flip();
+    }
+    protected void ClampHorizontalSpeed(float runMaxAcceleration)
+    {
+        if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !IsDash)
+            rb.linearVelocityX = runMaxAcceleration;
+        if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !IsDash)
+            rb.linearVelocityX = -runMaxAcceleration;
+    }
+    protected void DoubleTap() // 더블탭 감지
+    {
+        if (tapCount > 0 && doubleTapCurTime.start <= doubleTapDetectTime.start)
+        {
+            //print("시작");
+            doubleTapCurTime.start += Time.deltaTime;
+            //print(startDoubleTapCurTime);
+            if (doubleTapCurTime.start >= doubleTapDetectTime.start)
+            {
+                tapCount = 0;
+                doubleTapCurTime.start = 0;
+            }
+            else if (doubleTapCurTime.start < doubleTapDetectTime.start && tapCount == 2)
+            {
+                IsRun = true;
+            }
+        }
+        if (IsRun && moveInput.x == 0)
+        {
+            doubleTapCurTime.end += Time.deltaTime;
+            if (doubleTapCurTime.end >= doubleTapDetectTime.end)
+            {
+                doubleTapCurTime.start = 0;
+                doubleTapCurTime.end = 0;
+                IsRun = false;
+                tapCount = 0;
+            }
+        }
     }
 }
 

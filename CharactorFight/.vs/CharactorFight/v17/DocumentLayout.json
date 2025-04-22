@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\kjh\\unity\\charactorfight\\charactorfight\\assets\\1.scripts\\player\\playerzoro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playerzoro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\kjh\\unity\\charactorfight\\charactorfight\\assets\\1.scripts\\player\\playerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerZoro.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerZoro.cs",
+              "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerZoro.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerZoro.cs",
+              "RelativeToolTip": "Assets\\1.Scripts\\Player\\PlayerZoro.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wB8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T01:28:49.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PlayerBase.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "RelativeToolTip": "Assets\\1.Scripts\\Player\\PlayerBase.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAewE8AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAD4v4QAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T11:14:53.718Z",
               "EditorCaption": ""

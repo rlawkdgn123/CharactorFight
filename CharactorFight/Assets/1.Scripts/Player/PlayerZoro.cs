@@ -11,75 +11,53 @@ public class PlayerZoro : PlayerBase
     }
     void Update()
     {
+        if (currentChoice == PlayerChoice.P1 && !getKeyIgnore)
+        {
+            moveInput.x = Input.GetAxisRaw("P1 Horizontal");
+            // 더블탭 감지를 위한 키 입력 체크
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) { tapCount++; }
+            print(moveInput.x * CurrentMoveSpeed);
+            
+        }
+        else if (currentChoice == PlayerChoice.P2 && !getKeyIgnore)
+        {
+            moveInput.x = Input.GetAxisRaw("P2 Horizontal");
+            // 더블탭 감지를 위한 키 입력 체크
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) { tapCount++; }
+            print(moveInput.x * CurrentMoveSpeed);
+        }
+
+        if (IsAlive)
+            IsMove = moveInput != Vector2.zero;
+        else
+            IsMove = false;
+
         DoubleTap(); // 더블탭 감지
+        SetFacingDirection(); // 방향 플립
     }
     private void FixedUpdate()
     {
-        if (currentChoice == PlayerChoice.P1)
+        if (IsMove)
         {
-            moveInput.x = Input.GetAxisRaw("P1 Horizontal");
             OnMove();
-            //print("p1");
-            print(CurrentMoveSpeed);
         }
-        else if (currentChoice == PlayerChoice.P2)
-        {
-            moveInput.x = Input.GetAxisRaw("P2 Horizontal");
-            OnMove();
-            print("p2");
-        } else { }
-        
     }
     private void OnMove()
     {
-        rb.AddForce(new Vector2(moveInput.x * CurrentMoveSpeed, 0), ForceMode2D.Impulse); //Addforce로 인한 가속 형태의 이동
+        if (moveInput.x != 0)
+            rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocityY);
 
         if (!IsRun)
             ClampHorizontalSpeed(walkMaxAcceleration);
         else
             ClampHorizontalSpeed(runMaxAcceleration);
 
-        /*if (moveInput.x == 0 && !IsDash && touchingDirection.IsGrounded) // 감속
+        if (moveInput.x == 0 && !IsDash && td.IsGrounded) // 감속
         {
-            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime); 
-        }*/
-    }
-    private void ClampHorizontalSpeed(float runMaxAcceleration)
-    {
-            if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !IsDash)
-                rb.linearVelocityX = runMaxAcceleration;
-            if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !IsDash)
-                rb.linearVelocityX = -runMaxAcceleration;
-    }
-    void DoubleTap()
-    {
-        if (tapCount > 0 && doubleTapCurTime.start <= doubleTapDetectTime.start)
-        {
-            //print("시작");
-            doubleTapCurTime.start += Time.deltaTime;
-            //print(startDoubleTapCurTime);
-            if (doubleTapCurTime.start >= doubleTapDetectTime.start)
-            {
-                tapCount = 0;
-                doubleTapCurTime.start = 0;
-            }
-            else if (doubleTapCurTime.start < doubleTapDetectTime.start && tapCount == 2)
-            {
-                IsRun = true;
-            }
-        }
-        if (IsRun && moveInput.x == 0)
-        {
-            doubleTapCurTime.end += Time.deltaTime;
-            if (doubleTapCurTime.end >= doubleTapDetectTime.end)
-            {
-                doubleTapCurTime.start = 0;
-                doubleTapCurTime.end = 0;
-                IsRun = false;
-                tapCount = 0;
-            }
+            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
         }
     }
+    
 }
 
     

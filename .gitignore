@@ -21,3 +21,4 @@ MemoryCaptures/
 sysinfo.txt
 *.apk
 *.log
+/CharactorFight/.vs
