@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &563699734322290622
+--- !u!1 &1979775346453082343
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7233255585216995337}
-  - component: {fileID: 934320848023133971}
-  - component: {fileID: 386370038933465418}
-  - component: {fileID: 7801365294004424570}
-  - component: {fileID: 2900722048810070766}
-  - component: {fileID: 7195894938290138444}
-  - component: {fileID: 452705653031069569}
+  - component: {fileID: 662769693431779540}
+  - component: {fileID: 8058970391037072703}
+  - component: {fileID: 1246933812992142129}
+  - component: {fileID: 1433917757686279668}
+  - component: {fileID: 454086385013343922}
+  - component: {fileID: 7902921471870631225}
+  - component: {fileID: 7344294784433151336}
+  - component: {fileID: 6686187215232531277}
   m_Layer: 0
-  m_Name: Roronoa Zoro-0
+  m_Name: Roronoa Zoro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7233255585216995337
+--- !u!4 &662769693431779540
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 662769693431779540}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &934320848023133971
+--- !u!212 &8058970391037072703
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -92,14 +93,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &386370038933465418
+--- !u!95 &1246933812992142129
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
@@ -114,14 +115,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &7801365294004424570
+--- !u!50 &1433917757686279668
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -141,13 +142,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &2900722048810070766
+--- !u!70 &454086385013343922
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -178,18 +179,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.3, y: 0.66}
   m_Direction: 0
---- !u!114 &7195894938290138444
+--- !u!114 &7902921471870631225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c26f6cc00197d46448623b2d6f21fa89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHelth: 0
+  maxHelth: 0
   IsSelect: 0
   currentChoice: 1
   IsMove: 0
@@ -197,6 +200,7 @@ MonoBehaviour:
   IsDash: 0
   IsChoice: 0
   IsAlive: 1
+  allWaysRun: 0
   moveSpeed:
     walk: 5
     run: 8
@@ -219,23 +223,37 @@ MonoBehaviour:
     air: 0.1
   dashDurationIdle: 0.1
   dashCooltime: 1
+  lastKey: 0
   doubleTapCurTime:
     start: 0
     end: 0
   doubleTapDetectTime:
-    start: 0.5
+    start: 0.4
     end: 0.1
   tapCount: 0
+  isDoubleTap: 0
   moveInput: {x: 0, y: 0}
   td: {fileID: 0}
   getKeyIgnore: 0
---- !u!114 &452705653031069569
+--- !u!114 &7344294784433151336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563699734322290622}
+  m_GameObject: {fileID: 1979775346453082343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f290621aeb29c07478f4ec39afec96ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6686187215232531277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979775346453082343}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e84830ebcfd67e44ea013b84a29fb03a, type: 3}
@@ -261,35 +279,3 @@ MonoBehaviour:
   _isGrounded: 0
   _isOnwall: 0
   _isOnCeiling: 0
---- !u!1 &1979775346453082343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 662769693431779540}
-  m_Layer: 0
-  m_Name: Roronoa Zoro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &662769693431779540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979775346453082343}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7233255585216995337}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
