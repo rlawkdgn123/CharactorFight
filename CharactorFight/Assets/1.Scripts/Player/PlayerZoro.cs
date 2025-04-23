@@ -8,9 +8,16 @@ public class PlayerZoro : PlayerBase
 
     void Awake()
     {
-        //PlayerInitialize();
+        PlayerInitialize();
     }
-    
+    private void Update()
+    {
+        DefaultUpadateSetting();
+    }
+    private void FixedUpdate()
+    {
+        DefaultFixedUpadateSetting();
+    }
 
 }
 

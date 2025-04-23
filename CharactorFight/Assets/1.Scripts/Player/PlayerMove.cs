@@ -4,21 +4,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using static PlayerBase;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 public class PlayerMove : MonoBehaviour
 {
     [System.Serializable]
     public struct StateValue
     {
-        public StateValue(float walk, float run, float air)
+        public StateValue(float ground, float air)
         {
-            this.walk = walk;
-            this.run = run;
+            this.ground = ground;
             this.air = air;
         }
-        public float walk; // 걷기
-        public float run; // 뛰기
-        public float air; // 공중
+        public float ground; // 걷기
+        public float air; // 뛰기
     }
     [System.Serializable]
     public struct StartEnd
@@ -35,81 +34,78 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    private TouchingDirection td; //땅이나 벽에 닿아있는 방향을 판단
+    //private TouchingDirection td; //땅이나 벽에 닿아있는 방향을 판단
     private PlayerBase player;
     
     [SerializeField] protected bool allWaysRun; // 기본값 달리기 여부
 
-    [SerializeField] protected float CurrentMoveSpeed { // 지상/공중 상태에 따른 현재 이동속도
-        get // 조건 받아 반환
-        {
-            if (player._isMove && !td.IsOnWall) // 걷고있으면 && 벽에 충돌하지 않은 상태면
-            {
-                if (td.IsGrounded) // 지상일 때
-                {
-                    if (player._isRun || allWaysRun)  // 달리기일 때
-                    {
-                        return moveSpeed.run; // 달리기 속도
-                    }
-                    else        //걷기일 때
-                    {
-                        return moveSpeed.walk; // 걷기 속도
-                    }
-                }
-                else // 공중일 때
-                {
-                    return moveSpeed.air; // 공중 속도
-                }
-            }
-            else // 걷지 않거나 벽에 충돌하면
-            {
-                return 0; // 이동속도 반환 안함
-            }
-        }
-    }
-    [Header("PlayerMove")]
-    [SerializeField] protected StateValue moveSpeed = new StateValue(5f, 8f, 6f); // 걷기/ 뛰기 / 공중 이동속도
-    [SerializeField] protected float attackSpeed = 3f;
-    [SerializeField] protected float walkMaxAcceleration = 10f; //걷기 최대 가속값
-    [SerializeField] protected float runMaxAcceleration = 10f; //뛰기 최대 가속값
-    [SerializeField] protected float deceleration = 2f; // 감속값
-    [SerializeField] protected float jumpImpulse = 8f; //점프하는 힘
 
-    [SerializeField] protected bool dashOn = true; //대쉬 활성화 여부
+    [Header("PlayerMove")]
+    [SerializeField] public StateValue moveSpeed = new StateValue(5f, 6f); // 걷기/ 뛰기 / 공중 이동속도
+    [SerializeField] public float attackSpeed = 3f;
+    [SerializeField] public StateValue maxAcceleration = new StateValue(10f, 10f); // 대쉬 최대 가속값
+    [SerializeField] public float deceleration = 2f; // 감속값
+    [SerializeField] public float jumpImpulse = 8f; //점프하는 힘
+    [SerializeField] public int jumpCountMax = 2; //점프횟수 최대
+    [SerializeField] public int curjumpCount = 0; //점프횟수
+
+
+    [SerializeField] public bool dashOn = true; //대쉬 활성화 여부
 
     [SerializeField] public int selectedSkillIndex = 0; // 선택된 스킬 인덱스
     //public SkillData[] skillList;// 사용 가능한 스킬 목록
     //회피기
     [Header("PlayerSpeed")]
-    [SerializeField] protected StateValue dashSpeed = new StateValue(7f, 7f, 7f);
-    [SerializeField] protected float dashSpeedIdle = 7f; // 기본 및 서있기
-    [SerializeField] protected StateValue dashDuration = new StateValue(0.1f, 0.1f, 0.1f);
-    [SerializeField] protected float dashDurationIdle = 0.1f; // 기본 및 서있기
+    [SerializeField] public StateValue dashSpeed = new StateValue(7f, 7f);
+    [SerializeField] public float dashSpeedIdle = 7f; // 기본 및 서있기
+    [SerializeField] public StateValue dashDuration = new StateValue(0.1f, 0.1f);
+    [SerializeField] public float dashDurationIdle = 0.1f; // 기본 및 서있기
     [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
 
     [Header("PlayerDoubleTap")]
-    [SerializeField] protected KeyCode lastKey = KeyCode.None;
-    [SerializeField] protected StartEnd doubleTapCurTime = new StartEnd(0,0);// 더블탭 감지 타이머
-    [SerializeField] protected StartEnd doubleTapDetectTime = new StartEnd(0.3f,0.1f); // 더블탭 감지 활성 시간
-    [SerializeField] protected int tapCount; // 더블탭 카운트
-    [SerializeField] protected bool isDoubleTap; // 더블탭 여부
+    [SerializeField] public KeyCode lastKey = KeyCode.None;
+    [SerializeField] public StartEnd doubleTapCurTime = new StartEnd(0,0);// 더블탭 감지 타이머
+    [SerializeField] public StartEnd doubleTapDetectTime = new StartEnd(0.3f,0.1f); // 더블탭 감지 활성 시간
+    [SerializeField] public int tapCount; // 더블탭 카운트
+    [SerializeField] public bool isDoubleTap = false; // 더블탭 여부
 
-    [SerializeField] protected Vector2 moveInput; //입력 방향
-  
+    [SerializeField] public Vector2 moveInput; //입력 방향
 
-    public bool getKeyIgnore = false; // 모든 입력 무시 여부
+
+    
+    float GetSpeed()
+    {
+        if (player.GetCurDirState() == DirState.Ground || player.GetCurDirState() == DirState.GroundWall) { return moveSpeed.ground; }
+        else if (player.GetCurDirState() == DirState.Air || player.GetCurDirState() == DirState.AirWall || player.GetCurDirState() == DirState.AirCeiling) { return moveSpeed.air; }
+        else { print("MoveSpeed 반환 에러"); return 0; }
+    }
+     float GetMaxAcceleration()
+    {
+        if (player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall)) { return maxAcceleration.ground; }
+        else if (player.GetCurDirState(DirState.Air) || player.GetCurDirState(DirState.AirWall) || player.GetCurDirState(DirState.AirCeiling)) { return maxAcceleration.air; }
+        else { print("MoveSpeed 반환 에러"); return 0; }
+    }
 
     private void Awake()
     {
         PlayerInitialize(); // 컴포넌트 연결
     }
-    void Update()
+    public void GetMoveKey()
     {
-        if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P1 && !getKeyIgnore) // Player 1
+        DoubleTap();
+
+        if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P1 && !player.getKeyIgnore) // Player 1
         {
-            if (td.IsGrounded && Input.GetKeyDown(KeyCode.W)) // 점프
+            if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax) // 점프
             {
+                curjumpCount++;
+                anim.SetTrigger(AnimationStrings.jumpTrgger);
                 rb.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
+            }
+            
+            if ((player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall))&& curjumpCount >= jumpCountMax)
+            {
+                curjumpCount = 0;
             }
 
             moveInput.x = Input.GetAxisRaw("P1 Horizontal");
@@ -139,15 +135,20 @@ public class PlayerMove : MonoBehaviour
                 }
             }
         }
-        else if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P2 && !getKeyIgnore) // Player 2
+        else if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P2 && !player.getKeyIgnore) // Player 2
         {
 
-            if (td.IsGrounded && Input.GetKeyDown(KeyCode.UpArrow)) // 점프
+            if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax) // 점프
             {
+                curjumpCount++;
                 anim.SetTrigger(AnimationStrings.jumpTrgger);
                 rb.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
             }
 
+            if ((player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall)) && curjumpCount >= jumpCountMax)
+            {
+                curjumpCount = 0;
+            }
             moveInput.x = Input.GetAxisRaw("P2 Horizontal");
             // 더블탭 감지를 위한 키 입력 체크
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -175,52 +176,33 @@ public class PlayerMove : MonoBehaviour
                 }
             }
         }
-        if (player.GetIsAlive())
-            player._isMove = moveInput != Vector2.zero;
-        else
-            player._isMove = false;
-
-        if (!allWaysRun)
-        {
-            player._isRun = DoubleTap(player._isRun); // 더블탭 감지
-        }
-        else
-        {
-            player._isDash = DoubleTap(player._isDash); // 더블탭 감지
-        }
 
         SetFacingDirection(); // 방향 플립
     }
-    private void FixedUpdate()
-    {
-        if (player._isMove)
-        {
-            OnMove();
-        }
-        if (moveInput.x == 0 && !player._isDash && td.IsGrounded) // 감속
-        {
-            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
-        }
-    }
 
-    protected void PlayerInitialize()
+    public void PlayerInitialize()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
-        td = gameObject.GetComponent<TouchingDirection>();
+        //td = gameObject.GetComponent<TouchingDirection>();
         player = gameObject.GetComponent<PlayerBase>();
+        
     }
-
-    private void OnMove()
+    public void Deceleration()
+    {
+        if (moveInput.x == 0 && !player.GetCurPlayerState(PlayerState.Dash) && player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall))  // 감속
+        {
+            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
+        }
+    }
+    public void OnMove()
     {
         if (moveInput.x != 0)
-            rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocityY);
+            rb.linearVelocity = new Vector2(moveInput.x * GetSpeed(), rb.linearVelocityY);
 
-        if (!player._isRun)
-            ClampHorizontalSpeed(walkMaxAcceleration);
-        else
-            ClampHorizontalSpeed(runMaxAcceleration);
+        if (player.GetCurPlayerState() == PlayerState.Move)
+            ClampHorizontalSpeed(GetMaxAcceleration());
     }
     // 방향전환
     private void Flip()
@@ -229,7 +211,7 @@ public class PlayerMove : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
-    protected void SetFacingDirection()
+    public void SetFacingDirection()
     {
         if (moveInput.x > 0 && transform.localScale.x < 0)
             Flip();
@@ -237,14 +219,14 @@ public class PlayerMove : MonoBehaviour
         else if (moveInput.x < 0 && transform.localScale.x > 0)
             Flip();
     }
-    protected void ClampHorizontalSpeed(float runMaxAcceleration)
+    public void ClampHorizontalSpeed(float runMaxAcceleration)
     {
-        if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !player._isDash)
+        if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !player.GetCurPlayerState(PlayerState.Dash))
             rb.linearVelocityX = runMaxAcceleration;
-        if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !player._isDash)
+        if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !player.GetCurPlayerState(PlayerState.Dash))
             rb.linearVelocityX = -runMaxAcceleration;
     }
-    protected bool DoubleTap(bool flag) // 더블탭 감지
+    public void DoubleTap() // 더블탭 감지
     {
         if (tapCount > 0 && doubleTapCurTime.start <= doubleTapDetectTime.start)
         {
@@ -257,10 +239,8 @@ public class PlayerMove : MonoBehaviour
             else if (doubleTapCurTime.start < doubleTapDetectTime.start && tapCount == 2)
             {
                 isDoubleTap = true;
-                return true;
             }
         }
-
         if (isDoubleTap && moveInput.x == 0)
         {
             doubleTapCurTime.end += Time.deltaTime;
@@ -268,12 +248,11 @@ public class PlayerMove : MonoBehaviour
             {
                 doubleTapCurTime.start = 0;
                 doubleTapCurTime.end = 0;
-                isDoubleTap = false;
+                
                 tapCount = 0;
-                return false;
+                isDoubleTap = false;
             }
         }
-        return flag;
     }
 }
 
