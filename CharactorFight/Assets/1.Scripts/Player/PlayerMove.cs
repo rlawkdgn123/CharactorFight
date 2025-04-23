@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -36,45 +37,17 @@ public class PlayerMove : MonoBehaviour
     private Animator anim;
     private TouchingDirection td; //땅이나 벽에 닿아있는 방향을 판단
     private PlayerBase player;
-
-    [Header("PlayerState")]
-    [SerializeField] public bool _isMove = false;
-    protected bool IsMove// 이동 여부
-    {
-        get
-        {
-            return _isMove;
-        }
-        set
-        {
-            _isMove = value;
-            anim.SetBool(AnimationStrings.isMoving, value);
-        }
-    }
-    [SerializeField] public bool _isRun = false;
-    protected bool IsRun // 달리기 여부
-    {
-        get
-        {
-            return _isRun;
-        }
-        set
-        {
-            _isRun = value;
-            anim.SetBool(AnimationStrings.isRunning, value);
-        }
-    }
-    [SerializeField] protected bool IsDash; // 대쉬 여부
+    
     [SerializeField] protected bool allWaysRun; // 기본값 달리기 여부
 
     [SerializeField] protected float CurrentMoveSpeed { // 지상/공중 상태에 따른 현재 이동속도
         get // 조건 받아 반환
         {
-            if (IsMove && !td.IsOnWall) // 걷고있으면 && 벽에 충돌하지 않은 상태면
+            if (player._isMove && !td.IsOnWall) // 걷고있으면 && 벽에 충돌하지 않은 상태면
             {
                 if (td.IsGrounded) // 지상일 때
                 {
-                    if (IsRun || allWaysRun)  // 달리기일 때
+                    if (player._isRun || allWaysRun)  // 달리기일 때
                     {
                         return moveSpeed.run; // 달리기 속도
                     }
@@ -203,28 +176,28 @@ public class PlayerMove : MonoBehaviour
             }
         }
         if (player.GetIsAlive())
-            IsMove = moveInput != Vector2.zero;
+            player._isMove = moveInput != Vector2.zero;
         else
-            IsMove = false;
+            player._isMove = false;
 
         if (!allWaysRun)
         {
-            IsRun = DoubleTap(IsRun); // 더블탭 감지
+            player._isRun = DoubleTap(player._isRun); // 더블탭 감지
         }
         else
         {
-            IsDash = DoubleTap(IsDash); // 더블탭 감지
+            player._isDash = DoubleTap(player._isDash); // 더블탭 감지
         }
 
         SetFacingDirection(); // 방향 플립
     }
     private void FixedUpdate()
     {
-        if (IsMove)
+        if (player._isMove)
         {
             OnMove();
         }
-        if (moveInput.x == 0 && !IsDash && td.IsGrounded) // 감속
+        if (moveInput.x == 0 && !player._isDash && td.IsGrounded) // 감속
         {
             rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
         }
@@ -244,7 +217,7 @@ public class PlayerMove : MonoBehaviour
         if (moveInput.x != 0)
             rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocityY);
 
-        if (!IsRun)
+        if (!player._isRun)
             ClampHorizontalSpeed(walkMaxAcceleration);
         else
             ClampHorizontalSpeed(runMaxAcceleration);
@@ -266,9 +239,9 @@ public class PlayerMove : MonoBehaviour
     }
     protected void ClampHorizontalSpeed(float runMaxAcceleration)
     {
-        if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !IsDash)
+        if (rb.linearVelocityX > runMaxAcceleration && moveInput.x == 1 && !player._isDash)
             rb.linearVelocityX = runMaxAcceleration;
-        if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !IsDash)
+        if (rb.linearVelocityX < -runMaxAcceleration && moveInput.x == -1 && !player._isDash)
             rb.linearVelocityX = -runMaxAcceleration;
     }
     protected bool DoubleTap(bool flag) // 더블탭 감지

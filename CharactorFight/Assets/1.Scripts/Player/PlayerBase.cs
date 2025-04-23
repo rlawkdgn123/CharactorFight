@@ -16,7 +16,6 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private int curHelth; // 현재체력
     [SerializeField] private int maxHelth; // 최대체력
 
-
     [SerializeField] protected bool IsAlive = true; // 선택 여부
 
     [Header("DefaultSettings")]
@@ -29,6 +28,50 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private PlayerChoice currentChoice = PlayerChoice.None;
     [SerializeField] private bool IsChoice; // 선택 여부
 
+    [Header("Attack")]
+    [SerializeField]  protected int atkStack = 0;
+    [SerializeField]  bool IsAttack; // 선택 여부
+
+    [Header("PlayerState")]
+    [SerializeField] public bool _isMove = false;
+    protected bool IsMove// 이동 여부
+    {
+        get
+        {
+            return _isMove;
+        }
+        set
+        {
+            _isMove = value;
+            anim.SetBool(AnimationStrings.isMoving, value);
+        }
+    }
+    [SerializeField] public bool _isRun = false;
+    protected bool IsRun // 달리기 여부
+    {
+        get
+        {
+            return _isRun;
+        }
+        set
+        {
+            _isRun = value;
+            anim.SetBool(AnimationStrings.isRunning, value);
+        }
+    }
+    [SerializeField] public bool _isDash; // 대쉬 여부
+    protected bool IsDash // 달리기 여부
+    {
+        get
+        {
+            return _isDash;
+        }
+        set
+        {
+            _isDash = value;
+            //anim.SetBool(AnimationStrings.Dash, value);
+        }
+    }
 
     public int GetCurHelth() { return curHelth; }
     public int GetMaxHelth() { return maxHelth; }
