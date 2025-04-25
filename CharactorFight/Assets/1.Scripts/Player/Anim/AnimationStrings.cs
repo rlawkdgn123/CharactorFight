@@ -8,6 +8,7 @@ internal class AnimationStrings //애니메이션 파라미터 이름들 모아둔 클래스
 {
     internal static string isMoving = "isMoving";
     internal static string isRunning = "isRunning";
+    internal static string isDashing = "isDashing";
     internal static string isGrounded = "isGrounded";
     internal static string yVelocity = "yVelocity";
     internal static string jumpTrgger = "jump";

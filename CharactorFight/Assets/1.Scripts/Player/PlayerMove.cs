@@ -43,24 +43,29 @@ public class PlayerMove : MonoBehaviour
     [Header("PlayerMove")]
     [SerializeField] public StateValue moveSpeed = new StateValue(5f, 6f); // 걷기/ 뛰기 / 공중 이동속도
     [SerializeField] public float attackSpeed = 3f;
-    [SerializeField] public StateValue maxAcceleration = new StateValue(10f, 10f); // 대쉬 최대 가속값
+    [SerializeField] public StateValue maxAcceleration = new StateValue(10f, 10f); // 이동 최대 가속값
     [SerializeField] public float deceleration = 2f; // 감속값
     [SerializeField] public float jumpImpulse = 8f; //점프하는 힘
     [SerializeField] public int jumpCountMax = 2; //점프횟수 최대
     [SerializeField] public int curjumpCount = 0; //점프횟수
 
-
+    [Header("PlayerDash")]
     [SerializeField] public bool dashOn = true; //대쉬 활성화 여부
+    [SerializeField] public bool GhostEffect = false; // 대쉬 잔상 활성화 여부
+    [SerializeField] public bool makeGhost = false; // 대쉬 잔상 활성화 여부
+    [SerializeField] public StateValue dashSpeed = new StateValue(7f, 7f); // 대시 속도
+    [SerializeField] public StateValue dashDuration = new StateValue(0.2f, 0.2f); // 대시 지속 시간
+    [SerializeField] public float curDashTime;
+    [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
 
-    [SerializeField] public int selectedSkillIndex = 0; // 선택된 스킬 인덱스
+
     //public SkillData[] skillList;// 사용 가능한 스킬 목록
     //회피기
     [Header("PlayerSpeed")]
-    [SerializeField] public StateValue dashSpeed = new StateValue(7f, 7f);
+    
     [SerializeField] public float dashSpeedIdle = 7f; // 기본 및 서있기
-    [SerializeField] public StateValue dashDuration = new StateValue(0.1f, 0.1f);
     [SerializeField] public float dashDurationIdle = 0.1f; // 기본 및 서있기
-    [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
+
 
     [Header("PlayerDoubleTap")]
     [SerializeField] public KeyCode lastKey = KeyCode.None;
@@ -94,9 +99,9 @@ public class PlayerMove : MonoBehaviour
     {
         DoubleTap();
 
-        if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P1 && !player.getKeyIgnore) // Player 1
+        if (player.GetCurChoice() == PlayerBase.PlayerChoice.P1 && !player.getKeyIgnore) // Player 1
         {
-            if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax) // 점프
+            if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
             {
                 curjumpCount++;
                 anim.SetTrigger(AnimationStrings.jumpTrgger);
@@ -135,10 +140,10 @@ public class PlayerMove : MonoBehaviour
                 }
             }
         }
-        else if (player.GetCurrentChoice() == PlayerBase.PlayerChoice.P2 && !player.getKeyIgnore) // Player 2
+        else if (player.GetCurChoice() == PlayerBase.PlayerChoice.P2 && !player.getKeyIgnore) // Player 2
         {
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax) // 점프
+            if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
             {
                 curjumpCount++;
                 anim.SetTrigger(AnimationStrings.jumpTrgger);
@@ -204,6 +209,52 @@ public class PlayerMove : MonoBehaviour
         if (player.GetCurPlayerState() == PlayerState.Move)
             ClampHorizontalSpeed(GetMaxAcceleration());
     }
+    float GetDashSpeed()
+    {
+        if (player.GetCurDirSetGround()) { return dashSpeed.ground; } else return dashSpeed.air;
+    }
+    public float GetDashDuration()
+    {
+        if (player.GetCurDirSetGround()) { return dashDuration.ground; } else return dashDuration.air;
+    }
+    public void OnDash()
+    {
+        Vector2 dashDir = moveInput;
+        //.ghost.makeGhost = true;
+        curDashTime += Time.deltaTime;
+
+        // 좌우 입력 기준 대시 방향 설정 (기본 오른쪽)
+        if (moveInput == Vector2.zero)
+            dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+
+        // Time.deltaTime 제거 – velocity는 초당 속도
+        rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
+
+        if (curDashTime >= GetDashDuration())
+        {
+            curDashTime = 0f;
+            //ghost.makeGhost = false;
+            isDoubleTap = false;
+            // 대시 종료 시 velocity 초기화 or 기존 움직임으로 복귀 가능
+            rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+        }
+        /*  this.ghost.makeGhost = true;
+          this.dashTime += Time.deltaTime;
+          this.isDash = true;
+
+          if (this.tmpDir == Vector2.zero) this.tmpDir = Vector2.right;
+          this.rBody2d.velocity = this.tmpDir.normalized * (this.playerMoveSpeed * 5) * Time.deltaTime;
+          if (this.dashTime >= this.maxaDashTime)
+          {
+              this.dashTime = 0;
+              this.isDash = false;
+              this.ghost.makeGhost = false;
+          }*/
+    }
+        public void Ghost()
+        {
+
+        }
     // 방향전환
     private void Flip()
     {

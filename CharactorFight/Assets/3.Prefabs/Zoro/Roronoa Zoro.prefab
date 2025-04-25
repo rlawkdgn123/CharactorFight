@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5331950794521314721}
   - component: {fileID: 8125470423280089707}
   - component: {fileID: 1939550713425348328}
-  - component: {fileID: 7708156565998120600}
-  - component: {fileID: 7679881253728179571}
-  - component: {fileID: 5840871737863673905}
   - component: {fileID: 8105426350375865571}
+  - component: {fileID: 7708156565998120600}
+  - component: {fileID: 5840871737863673905}
+  - component: {fileID: 7147250724035789746}
   m_Layer: 0
   m_Name: Roronoa Zoro
   m_TagString: Untagged
@@ -32,9 +32,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4311931109341483701}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.82, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -180,6 +180,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.3, y: 0.66}
   m_Direction: 0
+--- !u!114 &8105426350375865571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311931109341483701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f290621aeb29c07478f4ec39afec96ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7708156565998120600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,21 +206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHelth: 0
   maxHelth: 0
+  selectedSkillIndex: 0
   IsAlive: 1
-  currentChoice: 1
+  curChoice: 0
   IsChoice: 0
---- !u!114 &7679881253728179571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4311931109341483701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84830ebcfd67e44ea013b84a29fb03a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  charactor: 0
+  curPlayerState: 0
+  state_time: 0
+  getKeyIgnore: 0
+  curDirState: 0
+  groundDistance: 0.03
+  wallDistance: 0.6
+  ceilingDistance: 0.05
   castFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -223,12 +232,9 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  groundDistance: 0.05
-  wallDistance: 0.6
-  ceilingDistance: 0.05
-  _isGrounded: 0
-  _isOnwall: 0
-  _isOnCeiling: 0
+  groundActiveDis: 1.83
+  groundRayWidth: 1.7
+  groundRayStartPosition: 0.8
 --- !u!114 &5840871737863673905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,32 +247,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c141724317b69b448d44447a1024524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMove: 0
-  _isRun: 0
-  IsDash: 0
   allWaysRun: 0
   moveSpeed:
-    walk: 5
-    run: 8
-    air: 6
+    ground: 8
+    air: 8
   attackSpeed: 3
-  walkMaxAcceleration: 10
-  runMaxAcceleration: 10
-  deceleration: 2
-  jumpImpulse: 8
+  maxAcceleration:
+    ground: 10
+    air: 10
+  deceleration: 5
+  jumpImpulse: 27
+  jumpCountMax: 2
+  curjumpCount: 0
   dashOn: 1
-  selectedSkillIndex: 0
+  GhostEffect: 0
+  makeGhost: 1
   dashSpeed:
-    walk: 7
-    run: 7
-    air: 7
-  dashSpeedIdle: 7
+    ground: 6
+    air: 6
   dashDuration:
-    walk: 0.1
-    run: 0.1
+    ground: 0.1
     air: 0.1
-  dashDurationIdle: 0.1
+  curDashTime: 0
   dashCooltime: 1
+  dashSpeedIdle: 7
+  dashDurationIdle: 0.1
   lastKey: 0
   doubleTapCurTime:
     start: 0
@@ -277,8 +282,7 @@ MonoBehaviour:
   tapCount: 0
   isDoubleTap: 0
   moveInput: {x: 0, y: 0}
-  getKeyIgnore: 0
---- !u!114 &8105426350375865571
+--- !u!114 &7147250724035789746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,6 +291,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4311931109341483701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f290621aeb29c07478f4ec39afec96ad, type: 3}
+  m_Script: {fileID: 11500000, guid: db479b0cf21a7af48b8d6ff984f66ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curMana: 0
+  maxMana: 0
+  mpBar: {fileID: 0}
+  player: {fileID: 0}

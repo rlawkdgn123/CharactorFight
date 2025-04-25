@@ -9,6 +9,8 @@ public class TouchingDirection : MonoBehaviour
     public float groundDistance = 0.05f; // 바닥으로 판정하는 최대 거리
     public float wallDistance = 0.6f; //벽으로 판정하는 최대 거리
     public float ceilingDistance = 0.05f; // 천장으로 판정하는 최대 거리
+    
+
 
     CapsuleCollider2D touchingCol; //캡슐 콜라이더 컴포넌트
     Animator anim; //애니메이터 컴포넌트
