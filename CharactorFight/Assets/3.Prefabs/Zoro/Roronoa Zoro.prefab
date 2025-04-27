@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 7708156565998120600}
   - component: {fileID: 5840871737863673905}
   - component: {fileID: 7147250724035789746}
-  m_Layer: 0
+  - component: {fileID: 5339827452380874898}
+  m_Layer: 7
   m_Name: Roronoa Zoro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +37,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.82, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1245372942261566099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3757680367737233065
@@ -208,11 +210,12 @@ MonoBehaviour:
   maxHelth: 0
   selectedSkillIndex: 0
   IsAlive: 1
-  curChoice: 0
+  curChoice: 1
   IsChoice: 0
   charactor: 0
   curPlayerState: 0
   state_time: 0
+  dirState_time: 0
   getKeyIgnore: 0
   curDirState: 0
   groundDistance: 0.03
@@ -232,9 +235,11 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  groundActiveDis: 1.83
-  groundRayWidth: 1.7
-  groundRayStartPosition: 0.8
+  dashEndTime: 0
+  atkEndTime:
+  - 0.90000004
+  - 0.75
+  - 0.67499995
 --- !u!114 &5840871737863673905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +303,76 @@ MonoBehaviour:
   maxMana: 0
   mpBar: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &5339827452380874898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311931109341483701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640a8a1ea78b8b5429646d252afbd802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkComboMax: 3
+  curAtkCombo: 0
+  atkDuration:
+  - 0.25
+  - 0.65
+  - 0.8
+  lastAttackTime: 0
+  comboResetTime: 1
+--- !u!1 &7849230483069259465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245372942261566099}
+  - component: {fileID: 1077459403558071560}
+  m_Layer: 0
+  m_Name: PlatformSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245372942261566099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849230483069259465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2312718557001196059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077459403558071560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849230483069259465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac71fe1a261791b45aa8c5472e578418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundActiveDis: 1.85
+  groundRayWidth: 2
+  groundRayStartPosition: 1
+  hitPlatformObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

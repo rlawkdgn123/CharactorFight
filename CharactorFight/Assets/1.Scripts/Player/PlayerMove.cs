@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public bool makeGhost = false; // 대쉬 잔상 활성화 여부
     [SerializeField] public StateValue dashSpeed = new StateValue(7f, 7f); // 대시 속도
     [SerializeField] public StateValue dashDuration = new StateValue(0.2f, 0.2f); // 대시 지속 시간
-    [SerializeField] public float curDashTime;
+    [SerializeField] public float curDashTime = 0;
     [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
 
 
@@ -192,11 +192,10 @@ public class PlayerMove : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         //td = gameObject.GetComponent<TouchingDirection>();
         player = gameObject.GetComponent<PlayerBase>();
-        
     }
     public void Deceleration()
     {
-        if (moveInput.x == 0 && !player.GetCurPlayerState(PlayerState.Dash) && player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall))  // 감속
+        if (moveInput.x == 0 && !player.GetCurPlayerState(PlayerState.Dash) && player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall) && !player.getKeyIgnore)  // 감속
         {
             rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
         }
@@ -217,27 +216,49 @@ public class PlayerMove : MonoBehaviour
     {
         if (player.GetCurDirSetGround()) { return dashDuration.ground; } else return dashDuration.air;
     }
-    public void OnDash()
+    public bool OnDash()
     {
         Vector2 dashDir = moveInput;
-        //.ghost.makeGhost = true;
-        curDashTime += Time.deltaTime;
 
-        // 좌우 입력 기준 대시 방향 설정 (기본 오른쪽)
-        if (moveInput == Vector2.zero)
-            dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
-
-        // Time.deltaTime 제거 – velocity는 초당 속도
-        rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
-
-        if (curDashTime >= GetDashDuration())
+        if (curDashTime < GetDashDuration())
         {
-            curDashTime = 0f;
-            //ghost.makeGhost = false;
-            isDoubleTap = false;
-            // 대시 종료 시 velocity 초기화 or 기존 움직임으로 복귀 가능
-            rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+            if (moveInput == Vector2.zero)
+                dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+
+            rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
+            curDashTime += Time.deltaTime;
+
+            return false; // 아직 대시 진행 중
         }
+        else
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            curDashTime = 0f;
+            isDoubleTap = false;
+            print("중단22");
+
+            return true;  // 대시 종료
+        }
+
+        //Vector2 dashDir = moveInput;
+        ////.ghost.makeGhost = true;
+        //curDashTime += Time.deltaTime;
+
+        //// 좌우 입력 기준 대시 방향 설정 (기본 오른쪽)
+        //if (moveInput == Vector2.zero)
+        //    dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+
+        //// Time.deltaTime 제거 – velocity는 초당 속도
+        //rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
+
+        //if (curDashTime >= GetDashDuration())
+        //{
+        //    curDashTime = 0f;
+        //    //ghost.makeGhost = false;
+        //    isDoubleTap = false;
+        //    // 대시 종료 시 velocity 초기화 or 기존 움직임으로 복귀 가능
+        //    rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+        //}
         /*  this.ghost.makeGhost = true;
           this.dashTime += Time.deltaTime;
           this.isDash = true;

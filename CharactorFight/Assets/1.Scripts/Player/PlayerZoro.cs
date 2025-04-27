@@ -9,6 +9,7 @@ public class PlayerZoro : PlayerBase
     void Awake()
     {
         PlayerInitialize();
+        dashEndTime = 0.083f*1.5f;
     }
     private void Update()
     {

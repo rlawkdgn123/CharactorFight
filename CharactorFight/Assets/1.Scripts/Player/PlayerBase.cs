@@ -72,6 +72,9 @@ public class PlayerBase : MonoBehaviour
     protected Animator anim;
     protected PlayerMove pMove;
     protected PlayerMana pMana;
+    protected PlayerAttack pAtk;
+    protected GameObject psObj;
+    protected PlatformSensor ps;
 
     [Header("Choice")]
     [SerializeField] protected PlayerChoice curChoice = PlayerChoice.None;
@@ -83,6 +86,7 @@ public class PlayerBase : MonoBehaviour
     [Header("PlayerState")]
     [SerializeField] protected PlayerState curPlayerState = PlayerState.Idle;               // 현재 상태
     [SerializeField] float state_time;    //상태 시간
+    [SerializeField] float dirState_time;    //상태 시간
     [SerializeField] public bool getKeyIgnore = false; // 모든 입력 무시 여부
 
     [Header("DirState")]
@@ -91,22 +95,20 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] protected float wallDistance = 0.6f; //벽으로 판정하는 최대 거리
     [SerializeField] protected float ceilingDistance = 0.05f; // 천장으로 판정하는 최대 거리
     [SerializeField] protected ContactFilter2D castFilter; //레이캐스트 충돌 판정 필터 조건
-    [SerializeField] protected float groundActiveDis = 5f; // 바닥 활성화 거리
-    [SerializeField] protected float groundRayWidth = 5f; // 바닥감지 레이 길이
-    [SerializeField] protected float groundRayStartPosition = 5f; // 바닥감지 레이 길이
     //각 방향으로 레이캐스트 결과를 담는 배열
     protected RaycastHit2D[] groundHits = new RaycastHit2D[5];
     protected RaycastHit2D[] wallHits = new RaycastHit2D[5];
     protected RaycastHit2D[] ceilingHits = new RaycastHit2D[5];
-    private List<GameObject> hitGroundObjs = new List<GameObject>();
 
-    public PlayerState GetCurPlayerState() { return curPlayerState;  }
-    public bool GetCurPlayerState(PlayerState state) { if (curPlayerState == state) { return true; } else { return false; } }
+    [Header("AnimationInfo")]
+    [SerializeField] protected float dashEndTime;
+    [SerializeField] protected float[] atkEndTime = { 0.75f * 1.2f, 0.75f * 1, 0.75f * 0.9f };
     
-    public DirState GetCurDirState() { return curDirState; }
-    public bool GetCurDirState(DirState state) { if (curDirState == state) { return true; } else { return false; } }
-    public bool GetCurDirSetGround() { return GetCurDirState(DirState.Ground) || GetCurDirState(DirState.GroundWall); }
-    public bool GetCurDirSetAir() { return GetCurDirState(DirState.Air) || GetCurDirState(DirState.AirWall) || GetCurDirState(DirState.AirCeiling); }
+
+
+
+
+
     void Start()
     {
         PlayerStateStart(PlayerState.Idle);           // 상태 변경        
@@ -131,7 +133,7 @@ public class PlayerBase : MonoBehaviour
         PlayerStateUpdate();                     // 상태 프로세서
         DirStateUpdate();
         pMove.GetMoveKey();                        // 이동 키 입력
-        GroundActive();
+        //GroundActive();
     }
     protected void DefaultFixedUpadateSetting()
     {
@@ -149,11 +151,13 @@ public class PlayerBase : MonoBehaviour
             case PlayerState.Idle:
                 anim.SetBool(AnimationStrings.isMoving, false);
                 anim.SetBool(AnimationStrings.isDashing, false);
+                anim.SetBool(AnimationStrings.isAttack, false);
                 //pMove.Deceleration(); // 감속
                 break;
             case PlayerState.Move:
                 anim.SetBool(AnimationStrings.isMoving, true);
                 anim.SetBool(AnimationStrings.isDashing, false);
+                anim.SetBool(AnimationStrings.isAttack, false);
                 //pMove.Deceleration(); // 감속
                 break;
             case PlayerState.Dash:
@@ -161,6 +165,17 @@ public class PlayerBase : MonoBehaviour
                 state_time = Time.time + pMove.GetDashDuration();
                 break;
             case PlayerState.Attack:
+                getKeyIgnore = true;
+                pAtk.Attack();
+                pAtk.AttackInput();
+                anim.SetBool(AnimationStrings.isAttack, true);
+                state_time = Time.time + pAtk.atkDuration[pAtk.curAtkCombo - 1];
+                anim.SetTrigger(AnimationStrings.attackTrigger);
+
+                /*                anim.SetInteger(AnimationStrings.AttackCombo, ++pAtk.curAtkCombo);
+                                anim.SetTrigger(AnimationStrings.attackTrigger);*/
+                //state_time = Time.time + atkEndTime[atkCombo];
+
                 //동작변경 // movespeed = 0;
                 break;
             case PlayerState.AirAttack:
@@ -200,22 +215,48 @@ public class PlayerBase : MonoBehaviour
         {
             case PlayerState.Idle:
                 
-                if (IsAlive && pMove.moveInput != Vector2.zero && !pMove.isDoubleTap) { PlayerStateStart(PlayerState.Move); }
+                if (IsAlive && pMove.moveInput != Vector2.zero && !pMove.isDoubleTap &&!getKeyIgnore) { PlayerStateStart(PlayerState.Move); }
                 else if (IsAlive && pMove.isDoubleTap) { PlayerStateStart(PlayerState.Dash); }
+                else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack);}
                 break;
             case PlayerState.Move:
                 pMove.OnMove();
-                if (IsAlive && pMove.moveInput == Vector2.zero && !pMove.isDoubleTap) { PlayerStateStart(PlayerState.Idle); }
-                else if (IsAlive && pMove.isDoubleTap) { PlayerStateStart(PlayerState.Dash); }
+                if (IsAlive && pMove.moveInput == Vector2.zero && !pMove.isDoubleTap && !getKeyIgnore) { PlayerStateStart(PlayerState.Idle); }
+                else if (IsAlive && pMove.isDoubleTap && !getKeyIgnore) { PlayerStateStart(PlayerState.Dash); }
+                else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack); }
                 break;
             case PlayerState.Dash:
-                pMove.OnDash();
-                if (Time.time >= state_time/2) anim.SetBool(AnimationStrings.isDashing, false);
-                if (Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); break; }
-                if (Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); break; }
+                if (pMove.OnDash())
+                {
+                    if (IsAlive && Time.time >= state_time - dashEndTime) { anim.SetBool(AnimationStrings.isDashing, false); print(state_time - dashEndTime); }
+                    if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); break; }
+                    if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); break; }
+                }
                 break;
             case PlayerState.Attack:
-                //동작변경 // movespeed = 0;
+
+                if (Time.time >= state_time || pAtk.curAtkCombo > pAtk.atkComboMax)
+                {
+                    getKeyIgnore = false;
+                    if (IsAlive && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero)
+                        PlayerStateStart(PlayerState.Idle);
+                    else if(IsAlive && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero)
+                        PlayerStateStart(PlayerState.Move);
+                }
+                else
+                {
+                    if (IsAlive && pAtk.curAtkCombo <= pAtk.atkComboMax && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V))
+                                || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack); }
+                }
+                /*                
+                                if (IsAlive && !pMove.isDoubleTap)
+                                {
+                                    if (Time.time >= state_time && pMove.moveInput == Vector2.zero || pAtk.curAtkCombo >= pAtk.atkComboMax && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); break; }
+                                    if (Time.time >= state_time && pMove.moveInput != Vector2.zero || pAtk.curAtkCombo >= pAtk.atkComboMax && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); break; }
+                                }
+                                if (IsAlive && pAtk.curAtkCombo <= pAtk.atkComboMax && Time.time <= state_time && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V))
+                                || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack); }*/
+
                 break;
             default:
                 break;
@@ -224,7 +265,7 @@ public class PlayerBase : MonoBehaviour
     public void DirStateStart(DirState state)       //상태 변경 하는 함수
     {
         curDirState = state;                      //현재 상태 변경 
-        state_time = Time.time + 1.0f;          //상태 시간
+        dirState_time = Time.time + 1.0f;          //상태 시간
 
         switch (curDirState)
         {
@@ -274,7 +315,9 @@ public class PlayerBase : MonoBehaviour
                 break;
 
             case DirState.AirWall:
-                if (!(col.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0))
+                if (col.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0)
+                    DirStateStart(DirState.Ground);
+                else if (!(col.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0))
                     DirStateStart(DirState.Air);
                 else if (col.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0)
                     DirStateStart(DirState.AirCeiling);
@@ -283,7 +326,9 @@ public class PlayerBase : MonoBehaviour
                 break;
 
             case DirState.AirCeiling:
-                if (!(col.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0))
+                if (col.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0)
+                    DirStateStart(DirState.Ground);
+                else if (!(col.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0))
                     DirStateStart(DirState.Air);
                 else if (col.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0)
                     DirStateStart(DirState.AirWall);
@@ -304,42 +349,7 @@ public class PlayerBase : MonoBehaviour
         bool touchingCeiling = col.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
         anim.SetBool(AnimationStrings.isOnCeiling, touchingCeiling);
     }
-    private void GroundActive()
-    {
-        
-        // 레이의 시작 위치 설정
-        Vector2 rayStartPosition = new Vector2(transform.position.x - groundRayStartPosition, transform.position.y - groundActiveDis);
-        // 오른쪽으로 `groundActiveDis`만큼 길이를 가진 레이캐스트 발사
-        RaycastHit2D[] groundHits = Physics2D.RaycastAll(rayStartPosition, Vector2.right, groundRayWidth, LayerMask.GetMask("Ground"));
-
-        // 레이 경로를 씬 뷰에서 그리기
-        Debug.DrawRay(rayStartPosition, Vector2.right * groundRayWidth, Color.red);
-
-        foreach (RaycastHit2D hit in groundHits)
-        {
-            // 예시로 "Ground" 태그를 가진 오브젝트만 배열에 추가
-            if (hit.collider.CompareTag("Ground"))
-            {
-                // 이미 배열에 포함되어 있는지 확인하고 추가
-                if (!hitGroundObjs.Contains(hit.collider.gameObject))
-                {
-                    hitGroundObjs.Add(hit.collider.gameObject);
-                    hit.collider.gameObject.GetComponent<Platform>().ColOn(GetCurChoice());
-                    Debug.Log("레이캐스트가 'Ground' 오브젝트에 닿았습니다: " + hit.collider.gameObject.name);
-                }
-            }
-        }
-        for (int i = hitGroundObjs.Count - 1; i >= 0; i--)
-        {
-            // 배열의 오브젝트가 더 이상 충돌하지 않으면 배열에서 제거
-            if (!hitGroundObjs[i].GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Ground")))
-            {
-                Debug.Log("레이캐스트가 'Ground' 오브젝트에서 벗어났습니다: " + hitGroundObjs[i].name);
-                hitGroundObjs[i].GetComponent<Platform>().ColOff(GetCurChoice());
-                hitGroundObjs.RemoveAt(i);
-            }
-        }
-    }
+    
     /*    IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
             IsOnWall = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0;
             IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;*/
@@ -349,8 +359,12 @@ public class PlayerBase : MonoBehaviour
     public PlayerChoice GetCurChoice() { return curChoice; }
     public bool GetCurChoice(PlayerChoice choice) { if (curChoice == choice) { return true; } else { return false; } }
     public bool GetIsChoice() { return IsChoice; }
-
-
+    public PlayerState GetCurPlayerState() { return curPlayerState; }
+    public bool GetCurPlayerState(PlayerState state) { if (curPlayerState == state) { return true; } else { return false; } }
+    public DirState GetCurDirState() { return curDirState; }
+    public bool GetCurDirState(DirState state) { if (curDirState == state) { return true; } else { return false; } }
+    public bool GetCurDirSetGround() { return GetCurDirState(DirState.Ground) || GetCurDirState(DirState.GroundWall); }
+    public bool GetCurDirSetAir() { return GetCurDirState(DirState.Air) || GetCurDirState(DirState.AirWall) || GetCurDirState(DirState.AirCeiling); }
     protected void PlayerInitialize()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -359,5 +373,35 @@ public class PlayerBase : MonoBehaviour
         col = gameObject.GetComponent<CapsuleCollider2D>();
         pMove = gameObject.GetComponent<PlayerMove>();
         pMana = gameObject.GetComponent<PlayerMana>();
+        pAtk = gameObject.GetComponent<PlayerAttack>();
+
+        foreach (Transform child in transform)
+        {
+            switch (child.name)
+            {
+                case "PlatformSensor":
+                    ps = child.gameObject.GetOrAddComponent<PlatformSensor>();
+                    Debug.Log("PlatformSensor에 추가되었습니다.");
+                    break;
+                default:
+                    // "PlatformSensor"가 아니면 아무 작업도 하지 않음
+                    break;
+            }
+        }
+            
+
+
+        switch (curChoice)
+        {
+            case PlayerChoice.P1:
+                gameObject.layer = LayerMask.NameToLayer("P1");
+                break;
+            case PlayerChoice.P2:
+                gameObject.layer = LayerMask.NameToLayer("P2");
+                break;
+            default:
+                gameObject.layer = LayerMask.NameToLayer("Default");
+                break;
+        }
     }
 }

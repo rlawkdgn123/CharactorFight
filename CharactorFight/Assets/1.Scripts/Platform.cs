@@ -4,25 +4,50 @@ using static PlayerBase;
 public class Platform : MonoBehaviour
 {
     BoxCollider2D col;
+    int layer;
 
     private void Awake()
     {
         col = gameObject.GetComponent<BoxCollider2D>();
+        layer = gameObject.layer;
     }
-    public void ColOn(PlayerChoice player)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (player == PlayerChoice.P1)
+        if (collision.GetComponent<PlayerBase>() is PlayerBase player)
         {
+            PlatformSensor ps = player.gameObject.GetComponentInChildren<PlatformSensor>();
+            for (int i = 0; i < ps.hitPlatformObjs.Length; i++)
+            {
+                if (ps.hitPlatformObjs[i] == gameObject)
+                {
+                    if (player.GetCurChoice() == PlayerChoice.P1)
+                        Physics2D.IgnoreLayerCollision(layer, LayerMask.NameToLayer("P1"), true);
+                    else if (player.GetCurChoice() == PlayerChoice.P2)
+                        Physics2D.IgnoreLayerCollision(layer, LayerMask.NameToLayer("P2"), true);
 
+                    break;
+                }
+            }
         }
-        else if (player == PlayerChoice.P2)
-        {
-
-        }
-            col.enabled = true;
+    
+        //col.enabled = true;
     }
-    public void ColOff(PlayerChoice player)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        col.enabled = false;
+        if (collision.GetComponent<PlayerBase>() is PlayerBase player)
+        {
+            PlatformSensor ps = player.gameObject.GetComponentInChildren<PlatformSensor>();
+            for (int i = 0; i < ps.hitPlatformObjs.Length; i++)
+            {
+                if (ps.hitPlatformObjs[i] == gameObject)
+                {
+                    if (player.GetCurChoice() == PlayerChoice.P1)
+                        Physics2D.IgnoreLayerCollision(layer, LayerMask.NameToLayer("P1"), false);
+                    else if (player.GetCurChoice() == PlayerChoice.P2)
+                        Physics2D.IgnoreLayerCollision(layer, LayerMask.NameToLayer("P2"), false);
+                    break;
+                }
+            }
+        }
     }
 }

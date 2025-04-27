@@ -14,7 +14,9 @@ internal class AnimationStrings //애니메이션 파라미터 이름들 모아둔 클래스
     internal static string jumpTrgger = "jump";
     internal static string isOnwall = "isOnWall";
     internal static string isOnCeiling = "isOnCeiling";
-    internal static string attackTrigger = "attack";
+    internal static string isAttack = "isAttack"; 
+    internal static string AttackCombo = "AttackCombo";
+    internal static string attackTrigger = "Attack";
     internal static string canMove = "canMove";
     internal static string hasTarget = "hasTarget";
     internal static string isAlive = "isAlive";
