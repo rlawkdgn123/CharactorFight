@@ -135,6 +135,7 @@ public class PlayerBase : MonoBehaviour
         pMove.GetMoveKey();                        // 이동 키 입력
         //GroundActive();
     }
+
     protected void DefaultFixedUpadateSetting()
     {
         pMove.Deceleration();
@@ -168,6 +169,7 @@ public class PlayerBase : MonoBehaviour
                 getKeyIgnore = true;
                 pAtk.Attack();
                 pAtk.AttackInput();
+                pAtk.col.enabled = true;
                 anim.SetBool(AnimationStrings.isAttack, true);
                 state_time = Time.time + pAtk.atkDuration[pAtk.curAtkCombo - 1];
                 anim.SetTrigger(AnimationStrings.attackTrigger);
@@ -179,6 +181,8 @@ public class PlayerBase : MonoBehaviour
                 //동작변경 // movespeed = 0;
                 break;
             case PlayerState.AirAttack:
+                anim.SetBool(AnimationStrings.isAttack, true);
+                anim.SetTrigger(AnimationStrings.airAttackTrigger);
                 //동작변경 // movespeed = 0;
                 break;
             case PlayerState.Skill1:
@@ -217,13 +221,17 @@ public class PlayerBase : MonoBehaviour
                 
                 if (IsAlive && pMove.moveInput != Vector2.zero && !pMove.isDoubleTap &&!getKeyIgnore) { PlayerStateStart(PlayerState.Move); }
                 else if (IsAlive && pMove.isDoubleTap) { PlayerStateStart(PlayerState.Dash); }
-                else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack);}
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack);}
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetAir() && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.AirAttack); }
+                //else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.B)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Period)))) { PlayerStateStart(PlayerState.Skill1);}
                 break;
             case PlayerState.Move:
                 pMove.OnMove();
                 if (IsAlive && pMove.moveInput == Vector2.zero && !pMove.isDoubleTap && !getKeyIgnore) { PlayerStateStart(PlayerState.Idle); }
                 else if (IsAlive && pMove.isDoubleTap && !getKeyIgnore) { PlayerStateStart(PlayerState.Dash); }
-                else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack); }
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.Attack); }
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetAir() && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.V)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Comma)))) { PlayerStateStart(PlayerState.AirAttack); }
+                //else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.B)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Period)))) { PlayerStateStart(PlayerState.Skill1); }
                 break;
             case PlayerState.Dash:
                 if (pMove.OnDash())
@@ -239,9 +247,9 @@ public class PlayerBase : MonoBehaviour
                 {
                     getKeyIgnore = false;
                     if (IsAlive && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero)
-                        PlayerStateStart(PlayerState.Idle);
-                    else if(IsAlive && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero)
-                        PlayerStateStart(PlayerState.Move);
+                    { PlayerStateStart(PlayerState.Idle); pAtk.col.enabled = false; }
+                    else if (IsAlive && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero)
+                    { PlayerStateStart(PlayerState.Move); pAtk.col.enabled = false; }
                 }
                 else
                 {

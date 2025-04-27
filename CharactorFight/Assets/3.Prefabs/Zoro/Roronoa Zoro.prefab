@@ -1,5 +1,92 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2516769886335544882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5325562117107219405}
+  - component: {fileID: 4841857916313994741}
+  m_Layer: 7
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5325562117107219405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516769886335544882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2312718557001196059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &4841857916313994741
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516769886335544882}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.23524876, y: 0.7490675}
+      - {x: -0.24576542, y: 0.6982829}
+      - {x: -0.24861664, y: 0.53484404}
+      - {x: 0.060513914, y: 0.18355082}
+      - {x: 0.055228606, y: -0.3149942}
+      - {x: 0.76814294, y: -0.31499407}
+      - {x: 0.72097147, y: 0.18427576}
+      - {x: 0.5040833, y: 0.5364246}
+  m_UseDelaunayMesh: 0
 --- !u!1 &4311931109341483701
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,11 +100,11 @@ GameObject:
   - component: {fileID: 5331950794521314721}
   - component: {fileID: 8125470423280089707}
   - component: {fileID: 1939550713425348328}
-  - component: {fileID: 8105426350375865571}
   - component: {fileID: 7708156565998120600}
   - component: {fileID: 5840871737863673905}
   - component: {fileID: 7147250724035789746}
   - component: {fileID: 5339827452380874898}
+  - component: {fileID: 3622712589758704842}
   m_Layer: 7
   m_Name: Roronoa Zoro
   m_TagString: Untagged
@@ -39,6 +126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1245372942261566099}
+  - {fileID: 5325562117107219405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3757680367737233065
@@ -182,18 +270,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.3, y: 0.66}
   m_Direction: 0
---- !u!114 &8105426350375865571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4311931109341483701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f290621aeb29c07478f4ec39afec96ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7708156565998120600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a8a1ea78b8b5429646d252afbd802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 4841857916313994741}
   atkComboMax: 3
   curAtkCombo: 0
   atkDuration:
@@ -323,6 +400,39 @@ MonoBehaviour:
   - 0.8
   lastAttackTime: 0
   comboResetTime: 1
+--- !u!114 &3622712589758704842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311931109341483701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af246c8d60d848843a0a30c8ba35c729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillIcon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SkillIconShadow:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillList:
+  - {fileID: 11400000, guid: ebbd23bb5476d354a9f80ff03f6a163d, type: 2}
+  - {fileID: 0}
+  player: {fileID: 0}
+  pm: {fileID: 0}
+  scale: {x: 0, y: 0, z: 0}
+  skillOn: 00000000
+  skillCoolDown: 0
+  selectedSkillIndex: 0
+  isCoolDown: 0
+  isSkill: 0
 --- !u!1 &7849230483069259465
 GameObject:
   m_ObjectHideFlags: 0

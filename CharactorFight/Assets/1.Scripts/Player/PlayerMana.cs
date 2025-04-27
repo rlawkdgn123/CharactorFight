@@ -47,6 +47,9 @@ public class PlayerMana : MonoBehaviour
         Debug.Log("MP 충전, 현재 마나: " + curMana);
         curMana += chargeMana; // 플레이어 스크립트에 마나량 추가
     }
+    public void SetCurMana(int mana) { curMana = mana; }
+    public void AddCurMana(int mana) { curMana += mana; }
+    public void SubCurMana(int mana) { curMana -= mana; }
     public int GetCurMana() { return curMana; }
     public int GetMaxMana() { return maxMana; }
 }

@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("AttackCollider")]
+    [SerializeField] public Collider2D col;
+    [SerializeField] public Collider2D Aircol;
+
     [Header("DefaultSettings")]
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -18,6 +22,14 @@ public class PlayerAttack : MonoBehaviour
     {
         PlayerInitialize();
     }
+    private void Start()
+    {
+        if (col && player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { col.gameObject.layer = LayerMask.GetMask("P1Attack"); }
+        else if (col && player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { col.gameObject.layer = LayerMask.GetMask("P2Attack"); }
+
+        if (Aircol && player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { col.gameObject.layer = LayerMask.GetMask("P1Attack"); }
+        else if (Aircol && player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { col.gameObject.layer = LayerMask.GetMask("P2Attack"); }
+    }
     public void Attack()
 
     {
@@ -28,7 +40,6 @@ public class PlayerAttack : MonoBehaviour
     }
     public void AttackInput()
     {
-
         curAtkCombo++;
 
         if (curAtkCombo > atkComboMax)
