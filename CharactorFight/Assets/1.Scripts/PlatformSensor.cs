@@ -8,13 +8,10 @@ public class PlatformSensor : MonoBehaviour
     [SerializeField] private float groundRayStartPosition = 5f; // 바닥감지 레이 길이
 
     [SerializeField] public GameObject[] hitPlatformObjs = new GameObject[5];
-    private int layerNumP1;
-    private int layerNumP2;
-    private void Awake()
+    [SerializeField] private LayerMask layerNumPlayer;
+    private void Start()
     {
-        player = gameObject.GetComponent<PlayerBase>();
-        layerNumP1 = LayerMask.GetMask("P1");
-        layerNumP2 = LayerMask.GetMask("P2");
+        PlayerInitialize();
     }
     private void Update()
     {
@@ -22,7 +19,7 @@ public class PlatformSensor : MonoBehaviour
     }
     private void GroundActive()
     {
-
+        
         // 레이 시작 위치 설정
         Vector2 rayStartPosition = new Vector2(transform.position.x - groundRayStartPosition, transform.position.y - groundActiveDis);
 
@@ -47,7 +44,7 @@ public class PlatformSensor : MonoBehaviour
                 BoxCollider2D boxCol = hitPlatformObjs[i].GetComponent<BoxCollider2D>();
                 if (boxCol != null)
                 {
-                    boxCol.includeLayers = LayerMask.GetMask("P1");
+                    boxCol.includeLayers = layerNumPlayer;
                 }
             }
         }
@@ -74,7 +71,7 @@ public class PlatformSensor : MonoBehaviour
                 BoxCollider2D boxCol = oldObj.GetComponent<BoxCollider2D>();
                 if (boxCol != null)
                 {
-                    boxCol.includeLayers &= ~LayerMask.GetMask("P1"); // includeLayers 끄기
+                    boxCol.includeLayers &= ~layerNumPlayer; // includeLayers 끄기
                 }
             }
 
@@ -113,6 +110,18 @@ public class PlatformSensor : MonoBehaviour
     }
     public void PlayerInitialize()
     {
-        
+        player = gameObject.GetComponentInParent<PlayerBase>();
+        switch (player.GetCurChoice())
+        {
+            case PlayerBase.PlayerChoice.P1:
+                layerNumPlayer = LayerMask.GetMask("P1");
+                break;
+            case PlayerBase.PlayerChoice.P2:
+                layerNumPlayer = LayerMask.GetMask("P2");
+                break;
+            default:
+                layerNumPlayer = LayerMask.GetMask("Default");
+                break;
+        }
     }
 }

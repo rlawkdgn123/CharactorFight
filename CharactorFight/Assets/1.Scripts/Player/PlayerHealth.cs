@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 // 1차 작성자 : 김재성  2차 작성자 : 김장후
-public class Damageable : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit; // 데미지 받았을 때 발생하는 유니티 이벤트
     public UnityEvent<int, int> healthChanged; // 체력 변화 시 발생하는 유니티 이벤트
@@ -18,7 +18,7 @@ public class Damageable : MonoBehaviour
     Animator animator;
 
     [SerializeField]
-    private int _maxHealth = 100; //    최대 체력
+    private int _maxHealth = 1000; //    최대 체력
     public int MaxHealth
     {
         get
@@ -32,7 +32,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private int _health = 100; //현재 체력
+    private int _health = 1000; //현재 체력
 
     public int Health
     {

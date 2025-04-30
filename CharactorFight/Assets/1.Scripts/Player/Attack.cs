@@ -14,14 +14,18 @@ public class Attack : MonoBehaviour
     [SerializeField] private AudioSource audio;
     [SerializeField] public bool mpCharge;   // 공격 적중 시 마나 충전 여부
 
+    private void Awake()
+    {
+        PlayerInitialize();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        Damageable damageable = collision.GetComponent<Damageable>();
+
+        PlayerHealth damageable = collision.GetComponent<PlayerHealth>();
         
         if(damageable != null)
         {
-           
             bool gotHit = damageable.Hit(attackDmg, knockback);
 
             if(gotHit)
@@ -34,7 +38,10 @@ public class Attack : MonoBehaviour
     }
     private void OnEnable()
     {
-        audio.Play();
+        if (audio.clip != null)
+        {
+            audio.Play();
+        }
     }
     private void PlayerInitialize()
     {
