@@ -19,19 +19,16 @@ public class Attack : MonoBehaviour
         PlayerInitialize();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-
-        PlayerHealth damageable = collision.GetComponent<PlayerHealth>();
-        
-        if(damageable != null)
+        PlayerHealth damageable = col.GetComponent<PlayerHealth>();
+        if (damageable != null && player.GetCurChoice() != col.GetComponent<PlayerBase>().GetCurChoice())
         {
-            bool gotHit = damageable.Hit(attackDmg, knockback);
-
-            if(gotHit)
+            bool gotHit = damageable.Hit(attackDmg, knockback , transform.position);
+            if (gotHit)
             {
-                Debug.Log(collision.name + " hit for " + attackDmg);
-                if(mpCharge)
+                Debug.Log(col.name + " hit for " + attackDmg);
+                if (mpCharge)
                     pMana.GetComponent<PlayerMana>().MpCharge(chargeMana);
             }
         }

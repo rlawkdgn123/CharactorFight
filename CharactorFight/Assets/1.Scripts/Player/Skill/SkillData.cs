@@ -28,8 +28,9 @@ public class SkillData : ScriptableObject
     public bool skillPenetrate; // 발사체 관통 여부
     public float skillSpeed; // 발사체 및 소환체 이동속도
     [Header("기타")]
+    public GameObject spawnEffectPrefab; // 스폰 프리팹
     public GameObject projectilePrefab; // 스킬 프리팹
-    public GameObject ExplosionPrefab; // 스킬 폭발 프리팹
+    public GameObject explosionPrefab; // 스킬 폭발 프리팹
     public bool freezePlayerPos; // 스킬 사용 시 플레이어 정지 여부
     public AudioClip skillSpawnAudioSource; // 스킬 생성 시 효과음 배열
     public AudioClip skillDestroyAudioSource; // 스킬 소멸 시 효과음 배열

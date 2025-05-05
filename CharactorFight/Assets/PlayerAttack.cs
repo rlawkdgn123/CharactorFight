@@ -4,8 +4,8 @@ using static PlayerBase;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("AttackCollider")]
-    [SerializeField] public Collider2D col;
-    [SerializeField] public Collider2D Aircol;
+    [SerializeField] public Collider2D[] col;
+    [SerializeField] public Collider2D[] Aircol;
 
     [Header("DefaultSettings")]
     private Rigidbody2D rb;
@@ -15,35 +15,42 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("AnimationInfo")]
     [SerializeField] public int atkComboMax = 3;
+    [SerializeField] public int airAtkComboMax = 3;
     [SerializeField] public int curAtkCombo = 0;
+    [SerializeField] public int curAirAtkCombo = 0;
     [SerializeField] public float[] atkDuration = { 1, 1, 1 };
+    [SerializeField] public float airAtkEndTime = 0.9f;
     [SerializeField] public float lastAttackTime = 0f;
     [SerializeField] public float comboResetTime = 1.0f; // 콤보 입력 제한 시간
     [SerializeField] public bool canAirAttack = true;
-    [SerializeField] public float[] atkEndTime = { 0.75f * 1.2f, 0.75f * 1, 0.75f * 0.9f };
-    [SerializeField] public float airAtkEndTime = 0.9f;
+    
     private void Awake()
     {
         PlayerInitialize();
     }
     private void Start()
     {
-        if (col && player.GetCurChoice(PlayerBase.PlayerChoice.P1))
+        for(int i = 0; i < atkComboMax; i++)
         {
-            col.gameObject.layer = LayerMask.NameToLayer("P1Attack");  // P1Attack 레이어 할당
+            if (col[i] && player.GetCurChoice(PlayerBase.PlayerChoice.P1))
+            {
+                col[i].gameObject.layer = LayerMask.NameToLayer("P1Attack");  // P1Attack 레이어 할당
+            }
+            else if (col[i] && player.GetCurChoice(PlayerBase.PlayerChoice.P2))
+            {
+                col[i].gameObject.layer = LayerMask.NameToLayer("P2Attack");  // P2Attack 레이어 할당
+            }
         }
-        else if (col && player.GetCurChoice(PlayerBase.PlayerChoice.P2))
+        for(int j = 0; j < airAtkComboMax; j++)
         {
-            col.gameObject.layer = LayerMask.NameToLayer("P2Attack");  // P2Attack 레이어 할당
-        }
-
-        if (Aircol && player.GetCurChoice(PlayerBase.PlayerChoice.P1))
-        {
-            Aircol.gameObject.layer = LayerMask.NameToLayer("P1Attack");  // P1AirAttack 레이어 할당
-        }
-        else if (Aircol && player.GetCurChoice(PlayerBase.PlayerChoice.P2))
-        {
-            Aircol.gameObject.layer = LayerMask.NameToLayer("P2Attack");  // P2AirAttack 레이어 할당
+            if (Aircol[j] && player.GetCurChoice(PlayerBase.PlayerChoice.P1))
+            {
+                Aircol[j].gameObject.layer = LayerMask.NameToLayer("P1Attack");  // P1AirAttack 레이어 할당
+            }
+            else if (Aircol[j] && player.GetCurChoice(PlayerBase.PlayerChoice.P2))
+            {
+                Aircol[j].gameObject.layer = LayerMask.NameToLayer("P2Attack");  // P2AirAttack 레이어 할당
+            }
         }
     }
     public void Attack()
@@ -71,17 +78,17 @@ public class PlayerAttack : MonoBehaviour
     }
     public void AirAttackInput()
     {
-/*        curAtkCombo++;
+        curAtkCombo++;
 
-        if (curAtkCombo > atkComboMax)
+        if (curAtkCombo > airAtkComboMax)
 
-            curAtkCombo = 1; // 3콤보 이후에는 다시 1콤보로 이어지도록 (선택 사항)*/
+            curAtkCombo = 1; // 3콤보 이후에는 다시 1콤보로 이어지도록 (선택 사항)
 
         //anim.SetInteger("Player_attack_", curAtkCombo);
 
         anim.SetTrigger(AnimationStrings.airAttackTrigger);
 
-      /*  lastAttackTime = Time.time;*/
+        lastAttackTime = Time.time;
 
     }
     // 애니메이션 이벤트로 콤보 초기화 함수 연결 가능
@@ -131,7 +138,51 @@ public class PlayerAttack : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         player = gameObject.GetComponent<PlayerBase>();
 
-        col = transform.Find("Attack").GetComponent<Collider2D>();
-        Aircol = transform.Find("AirAttack").GetComponent<Collider2D>();
+        col = new Collider2D[atkComboMax];
+        Aircol = new Collider2D[airAtkComboMax];
+
+        for (int i = 0; i < atkComboMax; i++)
+        {
+            string atkName = "DefaultAttack/Attack" + (i + 1);
+            Transform atkTf = transform.Find(atkName);
+            if (atkTf != null)
+            {
+                Collider2D collider = atkTf.GetComponent<Collider2D>();
+                if (collider != null)
+                {
+                    col[i] = collider;
+                }
+                else
+                {
+                    Debug.LogWarning($"{atkName} 오브젝트에 Collider2D가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"{atkName} 오브젝트를 찾을 수 없습니다.");
+            }
+        }
+        for (int i = 0; i < airAtkComboMax; i++)
+        {
+            string atkName = "DefaultAttack/AirAttack" + (i + 1);
+            Transform atkTf = transform.Find(atkName);
+            if (atkTf != null)
+            {
+                Collider2D collider = atkTf.GetComponent<Collider2D>();
+                if (collider != null)
+                {
+                    Aircol[i] = collider;
+                }
+                else
+                {
+                    Debug.LogWarning($"{atkName} 오브젝트에 Collider2D가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"{atkName} 오브젝트를 찾을 수 없습니다.");
+            }
+        }
+
     }
 }

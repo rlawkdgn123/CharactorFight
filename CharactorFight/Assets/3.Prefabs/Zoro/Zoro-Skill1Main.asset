@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3014cbba8ea05644aa818f26a5d91c3f, type: 3}
+  m_Name: Zoro-Skill1Main
+  m_EditorClassIdentifier: 
+  skillName: Zoro-Skill1(Main)
+  skillNum: 0
+  skillIcon: {fileID: 0}
+  cooldown: 0
+  manaCost: 0
+  damage: 0
+  attackSpeed: 0
+  range: 0
+  spawnDelay: 0
+  duration: 0
+  knockback: {x: 0, y: 0}
+  spawnPosx: 2
+  spawnPosy: 0
+  motionTime: 1.083
+  skillFire: 1
+  skillPenetrate: 0
+  skillSpeed: 0
+  spawnEffectPrefab: {fileID: 1012403940183493251, guid: ba7d2225857c58b46b77149483ffbaf8, type: 3}
+  projectilePrefab: {fileID: 7251063228940515721, guid: 4b269772b2cb2794392488042d83c70c, type: 3}
+  explosionPrefab: {fileID: 0}
+  freezePlayerPos: 0
+  skillSpawnAudioSource: {fileID: 0}
+  skillDestroyAudioSource: {fileID: 0}

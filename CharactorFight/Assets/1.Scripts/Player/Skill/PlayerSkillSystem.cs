@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 public class PlayerSkillystem : MonoBehaviour
 {
-    public Image[] SkillIcon = new Image[4];
-    public Image[] SkillIconShadow = new Image[4];
+    public Image[] SkillIcon = new Image[2];
+    public Image[] SkillIconShadow = new Image[2];
     public SkillData[] skillList;// 사용 가능한 스킬 목록
     public PlayerBase player;
     public PlayerMana pm;
     //public bool skillOn;
     [SerializeField] private Vector3 scale;
-    public bool[] skillOn = new bool[4];//스킬 활성화 여부
+    public bool[] skillOn = new bool[2];//스킬 활성화 여부
     public bool skillCoolDown = false; // 스킬 쿨타임 진행중 여부;
     //[SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
     Rigidbody2D rb;
@@ -59,10 +59,10 @@ public class PlayerSkillystem : MonoBehaviour
     }
     public void OnSkill1()   // A키, 기둥 소환 공격
     {
-        if (player.GetCurDirState(PlayerBase.DirState.Ground) && !player.getKeyIgnore && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (player.GetCurDirState(PlayerBase.DirState.Ground) && !player.GetKeyIgnore() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             selectedSkillIndex = 0;
-            Debug.Log("스킬사용 A");
+            Debug.Log("스킬사용 1");
             if (!skillOn[selectedSkillIndex] && pm.GetCurMana() >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
             {
                 skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
@@ -72,7 +72,7 @@ public class PlayerSkillystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("스킬사용 A 실패");
+                Debug.Log("스킬사용 1 실패");
             }
         }
     }

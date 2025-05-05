@@ -1,11 +1,10 @@
 using System;
+using System.Collections;
 using System.Data;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using static PlayerBase;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 public class PlayerMove : MonoBehaviour
 {
     [System.Serializable]
@@ -35,8 +34,9 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     //private TouchingDirection td; //땅이나 벽에 닿아있는 방향을 판단
-    private PlayerBase player;
-    
+     private PlayerBase player;
+    [SerializeField] private GameObject ui;
+
     [SerializeField] protected bool allWaysRun; // 기본값 달리기 여부
 
 
@@ -47,6 +47,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public float deceleration = 2f; // 감속값
     [SerializeField] public float jumpImpulse = 8f; //점프하는 힘
     [SerializeField] public int jumpCountMax = 2; //점프횟수 최대
+    [SerializeField] public int dashCountMax = 2; //점프횟수 최대
     [SerializeField] public int curjumpCount = 0; //점프횟수
 
     [Header("PlayerDash")]
@@ -57,6 +58,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public StateValue dashDuration = new StateValue(0.2f, 0.2f); // 대시 지속 시간
     [SerializeField] public float curDashTime = 0;
     [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
+    [SerializeField] private float curDashCooltime = 0f; // 회피 쿨타임
+    [SerializeField] private Slider dashBar;                // 마나 게이지 UI
 
 
     //public SkillData[] skillList;// 사용 가능한 스킬 목록
@@ -91,7 +94,7 @@ public class PlayerMove : MonoBehaviour
         else { print("MoveSpeed 반환 에러"); return 0; }
     }
 
-    private void Awake()
+    private void Start()
     {
         PlayerInitialize(); // 컴포넌트 연결
     }
@@ -99,7 +102,7 @@ public class PlayerMove : MonoBehaviour
     {
         DoubleTap();
 
-        if (player.GetCurChoice() == PlayerBase.PlayerChoice.P1 && !player.getKeyIgnore) // Player 1
+        if (player.GetCurChoice() == PlayerBase.PlayerChoice.P1 && !player.GetKeyIgnore()) // Player 1
         {
             if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
             {
@@ -140,7 +143,7 @@ public class PlayerMove : MonoBehaviour
                 }
             }
         }
-        else if (player.GetCurChoice() == PlayerBase.PlayerChoice.P2 && !player.getKeyIgnore) // Player 2
+        else if (player.GetCurChoice() == PlayerBase.PlayerChoice.P2 && !player.GetKeyIgnore()) // Player 2
         {
 
             if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
@@ -184,7 +187,7 @@ public class PlayerMove : MonoBehaviour
 
         SetFacingDirection(); // 방향 플립
     }
-
+    
     public void PlayerInitialize()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -192,10 +195,22 @@ public class PlayerMove : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         //td = gameObject.GetComponent<TouchingDirection>();
         player = gameObject.GetComponent<PlayerBase>();
+        ui = player.GetPlayerUI();
+        string barName = "";
+        if (player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { barName = "P1_DashBar"; }
+        else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { barName = "P2_DashBar"; }
+
+        Transform tr = ui.transform.Find(barName);
+        if (tr != null)
+        {
+            dashBar = tr.gameObject.GetComponentInChildren<Slider>();
+            if (dashBar == null) { print("슬라이더가 존재하지 않습니다."); }
+        }
+        else { print(barName + "을 찾을 수 없습니다."); }
     }
     public void Deceleration()
     {
-        if (moveInput.x == 0 && !player.GetCurPlayerState(PlayerState.Dash) && player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall) && !player.getKeyIgnore)  // 감속
+        if (moveInput.x == 0 && !player.GetCurPlayerState(PlayerState.Dash) && player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall) && !player.GetKeyIgnore())  // 감속
         {
             rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, deceleration * Time.fixedDeltaTime);
         }
@@ -216,63 +231,75 @@ public class PlayerMove : MonoBehaviour
     {
         if (player.GetCurDirSetGround()) { return dashDuration.ground; } else return dashDuration.air;
     }
-    public bool OnDash()
+
+    public void OnDash()
     {
-        Vector2 dashDir = moveInput;
-
-        if (curDashTime < GetDashDuration())
+        if (dashOn)
         {
-            if (moveInput == Vector2.zero)
-                dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+            curDashCooltime = 0;
+            Vector2 dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+            if (curDashTime < GetDashDuration())
+            {
+                curDashTime += Time.deltaTime;
+                rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
+            }
+            else
+            {
+                dashOn = false;
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                curDashTime = 0f;
+                
+                isDoubleTap = false;
+            }
+        }
+       
+    }
+    public void DashCoolTimeUpdate()
+    {
+        if (dashBar != null) // 만약 hpBar 이미지가 할당되었다면
+            dashBar.value = ((float)curDashCooltime / (float)dashCooltime); // hpBar fillAmount값 변경
 
-            rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
-            curDashTime += Time.deltaTime;
-
-            return false; // 아직 대시 진행 중
+        if (curDashCooltime < dashCooltime)
+        {
+            curDashCooltime += Time.deltaTime;
         }
         else
         {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            curDashTime = 0f;
-            isDoubleTap = false;
-            print("중단22");
-
-            return true;  // 대시 종료
+            dashOn = true;
         }
-
-        //Vector2 dashDir = moveInput;
-        ////.ghost.makeGhost = true;
-        //curDashTime += Time.deltaTime;
-
-        //// 좌우 입력 기준 대시 방향 설정 (기본 오른쪽)
-        //if (moveInput == Vector2.zero)
-        //    dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
-
-        //// Time.deltaTime 제거 – velocity는 초당 속도
-        //rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
-
-        //if (curDashTime >= GetDashDuration())
-        //{
-        //    curDashTime = 0f;
-        //    //ghost.makeGhost = false;
-        //    isDoubleTap = false;
-        //    // 대시 종료 시 velocity 초기화 or 기존 움직임으로 복귀 가능
-        //    rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
-        //}
-        /*  this.ghost.makeGhost = true;
-          this.dashTime += Time.deltaTime;
-          this.isDash = true;
-
-          if (this.tmpDir == Vector2.zero) this.tmpDir = Vector2.right;
-          this.rBody2d.velocity = this.tmpDir.normalized * (this.playerMoveSpeed * 5) * Time.deltaTime;
-          if (this.dashTime >= this.maxaDashTime)
-          {
-              this.dashTime = 0;
-              this.isDash = false;
-              this.ghost.makeGhost = false;
-          }*/
     }
-        public void Ghost()
+    //Vector2 dashDir = moveInput;
+    ////.ghost.makeGhost = true;
+    //curDashTime += Time.deltaTime;
+
+    //// 좌우 입력 기준 대시 방향 설정 (기본 오른쪽)
+    //if (moveInput == Vector2.zero)
+    //    dashDir = transform.localScale.x < 0 ? Vector2.left : Vector2.right;
+
+    //// Time.deltaTime 제거 – velocity는 초당 속도
+    //rb.linearVelocity = dashDir.normalized * (GetDashSpeed() * 5f);
+
+    //if (curDashTime >= GetDashDuration())
+    //{
+    //    curDashTime = 0f;
+    //    //ghost.makeGhost = false;
+    //    isDoubleTap = false;
+    //    // 대시 종료 시 velocity 초기화 or 기존 움직임으로 복귀 가능
+    //    rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+    //}
+    /*  this.ghost.makeGhost = true;
+      this.dashTime += Time.deltaTime;
+      this.isDash = true;
+
+      if (this.tmpDir == Vector2.zero) this.tmpDir = Vector2.right;
+      this.rBody2d.velocity = this.tmpDir.normalized * (this.playerMoveSpeed * 5) * Time.deltaTime;
+      if (this.dashTime >= this.maxaDashTime)
+      {
+          this.dashTime = 0;
+          this.isDash = false;
+          this.ghost.makeGhost = false;
+      }*/
+    public void Ghost()
         {
 
         }

@@ -4,138 +4,117 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// 1Â÷ ÀÛ¼ºÀÚ : ±èÀç¼º  2Â÷ ÀÛ¼ºÀÚ : ±èÀåÈÄ
+// 1ì°¨ ì‘ì„±ì : ê¹€ì¬ì„±  2ì°¨ ì‘ì„±ì : ê¹€ì¥í›„
 public class PlayerHealth : MonoBehaviour
 {
-    public UnityEvent<int, Vector2> damageableHit; // µ¥¹ÌÁö ¹Ş¾ÒÀ» ¶§ ¹ß»ıÇÏ´Â À¯´ÏÆ¼ ÀÌº¥Æ®
-    public UnityEvent<int, int> healthChanged; // Ã¼·Â º¯È­ ½Ã ¹ß»ıÇÏ´Â À¯´ÏÆ¼ ÀÌº¥Æ®
+    [Header("DefaultSettings")]
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Animator anim;
+    private PlayerBase player;
+    [SerializeField] private GameObject ui;
     //public UIManager uiManager;
-    public Image hpBar;
+    public Slider hpBar;
     private bool death = false;
     public LayerMask playerMask;
     public LayerMask EnemyMask;
-
-    Animator animator;
-
-    [SerializeField]
-    private int _maxHealth = 1000; //    ÃÖ´ë Ã¼·Â
-    public int MaxHealth
-    {
-        get
-        {
-            return _maxHealth;
-        }
-        set
-        {
-            _maxHealth = value;
-        }
-    }
+    public int maxHealth = 1000;
 
     [SerializeField]
-    private int _health = 1000; //ÇöÀç Ã¼·Â
+    public int curHealth = 1000;
 
-    public int Health
-    {
-        get
-        {
-            return _health;
-        }
-        set
-        {
-            _health = value;
-            healthChanged?.Invoke(_health, MaxHealth);
-
-        }
-    }
+    [Header("HitSettings")]
     [SerializeField]
-    private bool _isAlive = true; // »ì¾ÆÀÖ´Â Áö
-    [SerializeField]
-    private bool isInvincible = false; // ¹«Àû »óÅÂÀÎÁö
+    private bool isInvincible = false; // ë¬´ì  ìƒíƒœì¸ì§€
+    [SerializeField] private float defaultAtkstunTime = 0.2f;
+    private float timeSinceHit = 0; //ë¬´ì  ì‹œê°„ ëˆ„ì  ì‹œê°„
+    public float invincibilityTime = 0.25f; //ë¬´ì  ì‹œê°„
 
+   
 
-
-
-    private float timeSinceHit = 0; //¹«Àû ½Ã°£ ´©Àû ½Ã°£
-    public float invincibilityTime = 0.25f; //¹«Àû ½Ã°£
-
-    public bool IsAlive {
-        get 
-        {
-            return _isAlive;       
-        }
-        set 
-        {
-            _isAlive = value;
-            animator.SetBool(AnimationStrings.isAlive, value);
-            Debug.Log("IsAlive set " + value);
-        }
+    private void Start()
+    {
+        PlayerInitialize();
     }
 
-
-    public bool LockVelocity //ÀÌµ¿ Á¦ÇÑ »óÅÂ ¿©ºÎ
+    private void Update() //ë¬´ì  ì‹œê°„ ìƒíƒœë©´ ëˆ„ì  ì‹œê°„ ê°±ì‹ í•˜ê³ , ë¬´ì ì´ ëë‚¬ì„ ê²½ìš° ë¬´ì  ìƒíƒœ í•´ì œ
     {
-        get
-        {
-            return animator.GetBool(AnimationStrings.lockVelocity);
-        }
-        set
-        {
-            animator.SetBool(AnimationStrings.lockVelocity, value);
-        }
-    }
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        string tag = this.gameObject.tag;
-    }
-
-    private void Update() //¹«Àû ½Ã°£ »óÅÂ¸é ´©Àû ½Ã°£ °»½ÅÇÏ°í, ¹«ÀûÀÌ ³¡³µÀ» °æ¿ì ¹«Àû »óÅÂ ÇØÁ¦
-    {
-        if (hpBar != null) // ¸¸¾à hpBar ÀÌ¹ÌÁö°¡ ÇÒ´çµÇ¾ú´Ù¸é
-            hpBar.fillAmount = ((float)_health / (float)_maxHealth); // hpBar fillAmount°ª º¯°æ
+        if (hpBar != null) // ë§Œì•½ hpBar ì´ë¯¸ì§€ê°€ í• ë‹¹ë˜ì—ˆë‹¤ë©´
+            hpBar.value = ((float)curHealth / (float)maxHealth); // hpBar fillAmountê°’ ë³€ê²½
 
         if (isInvincible)
         {
             if (timeSinceHit > invincibilityTime)
             {
-                // Remove invincibility
                 isInvincible = false;
                 timeSinceHit = 0;
             }
 
             timeSinceHit += Time.deltaTime;
         }
-        if (_health <= 0)
+        if (curHealth <= 0)
         {
-            IsAlive = false;
+            player.SetisAlive(false);
+        }
+    }
+    public bool LockVelocity //ì´ë™ ì œí•œ ìƒíƒœ ì—¬ë¶€
+    {
+        get
+        {
+            return anim.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            anim.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
 
-    public bool Hit(int damage, Vector2 knockback) //µ¥¹ÌÁö Ã³¸® 
+    public bool Hit(int damage, Vector2 knockback, Vector2 atkerPos) //ë°ë¯¸ì§€ ì²˜ë¦¬ 
     {
-        if(IsAlive && !isInvincible)
-        {   
-            Health -= damage;
-            isInvincible = true;
+        if (player.GetIsAlive() && !isInvincible)
+        {
+            rb.linearVelocity = Vector2.zero;
+            curHealth -= damage;
 
             LockVelocity = true;
-            animator.SetTrigger(AnimationStrings.hitTrigger);
-            damageableHit?.Invoke(damage, knockback);
-            //CharacterEvents.characterDamaged.Invoke(gameObject, damage);
+            anim.SetTrigger(AnimationStrings.hitTrigger);
 
-            return true;
+            player.StopAndIgnore(true);
+            StartCoroutine(StopKnockback(defaultAtkstunTime));
+            
+            if(atkerPos.x < player.GetPosition().x)
+            {
+                rb.linearVelocity = knockback;
+            }
+            else if (atkerPos.x > player.GetPosition().x)
+            {
+                rb.linearVelocity = new Vector2(knockback.x * -1, knockback.y); ;
+            }
+
+        /*  if(player.transform.localScale.x < 0)
+            {
+                rb.linearVelocity = knockback;
+            }else if (player.transform.localScale.x > 0)
+            {
+                rb.linearVelocity = new Vector2(knockback.x * -1, knockback.y); ;
+            }*/
+
+                return true;
         }
         //Unable to be hit
         return false;
     }
-
-/*    public void GameOver() //  »õ·Î Ãß°¡µÈ ÇÔ¼ö
+    private IEnumerator StopKnockback(float delay)
     {
-        this.gameObject.GetComponent<PlayerController>().getKeyIgnore = true; // Á×À¸¸é ÇÃ·¹ÀÌ¾î ¸ø ¿òÁ÷ÀÓ
-        Stop(); 
-        uiManager.Show("¿À¹ö",true); // °ÔÀÓ¿À¹ö ÆË¾÷
-    }*/
+        yield return new WaitForSeconds(delay);
+        player.StopAndIgnore(false);
+    }
+    /*    public void GameOver() //  ìƒˆë¡œ ì¶”ê°€ëœ í•¨ìˆ˜
+        {
+            this.gameObject.GetComponent<PlayerController>().getKeyIgnore = true; // ì£½ìœ¼ë©´ í”Œë ˆì´ì–´ ëª» ì›€ì§ì„
+            Stop(); 
+            uiManager.Show("ì˜¤ë²„",true); // ê²Œì„ì˜¤ë²„ íŒì—…
+        }*/
     public void Stop()
     {
         StopAllCoroutines();
@@ -143,7 +122,29 @@ public class PlayerHealth : MonoBehaviour
     public bool damageTest = false;
     public void hitTest(int damageTest)
     {
-        Health -= damageTest;
+        curHealth -= damageTest;
     }
+    public void PlayerInitialize()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        anim = gameObject.GetComponent<Animator>();
+        player = gameObject.GetComponent<PlayerBase>();
+        string tag = this.gameObject.tag;
+        curHealth = maxHealth;
 
+        ui = player.GetPlayerUI();
+
+        string barName = "";
+        if(player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { barName = "P1_HPBar"; }
+        else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { barName = "P2_HPBar"; }
+
+        Transform tr = ui.transform.Find(barName);
+        if (tr != null)
+        {
+            hpBar = tr.gameObject.GetComponentInChildren<Slider>();
+            if (hpBar == null) { print("ìŠ¬ë¼ì´ë”ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."); }
+        }
+        else { print(barName + "ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤."); }
+    }
 }

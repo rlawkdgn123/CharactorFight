@@ -36,11 +36,11 @@ public class PlayerSkill : MonoBehaviour
             /*damageable.Hit(skillDamage, skillKnockback)*/; // 데미지 및 넉백 적용
             print("1차 감지");
 
-            if(skillData.ExplosionPrefab != null)   //  폭발을 표현할 프리팹이 있는 경우
+            if(skillData.explosionPrefab != null)   //  폭발을 표현할 프리팹이 있는 경우
             {
                 print("2차 감지");
                 Vector2 explosionSpawnPos = this.gameObject.transform.position; 
-                GameObject explosionPrefab = Instantiate(skillData.ExplosionPrefab, explosionSpawnPos , Quaternion.identity);
+                GameObject explosionPrefab = Instantiate(skillData.explosionPrefab, explosionSpawnPos , Quaternion.identity);
                 playerSkillSub = explosionPrefab.GetComponent<PlayerSkill_Sub>();
                 playerSkillSub.target = collision.gameObject;
 
