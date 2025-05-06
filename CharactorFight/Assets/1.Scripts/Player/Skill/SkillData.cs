@@ -17,6 +17,7 @@ public class SkillData : ScriptableObject
     public int attackSpeed; // 공격속도
     public float range; // 공격 사거리
     [Header("생성 및 지연")]
+    public bool spawnEffect;
     public float spawnDelay; // 생성 지연
     public float duration; // 스킬 지속시간
     public Vector2 knockback; // 넉백 거리
@@ -26,7 +27,11 @@ public class SkillData : ScriptableObject
     [Header("스킬 발사")]
     public bool skillFire; // 스킬 프리팹 발사 여부
     public bool skillPenetrate; // 발사체 관통 여부
+    public bool skillGrowing; // 지속시간 따라 스킬 크기 커지는 여부
+    public bool skillFaster; // 지속시간 따라 스킬 속도 빨라지는 여부
     public float skillSpeed; // 발사체 및 소환체 이동속도
+    public bool skillAddSpeed; // 지속시간 따라 빨라지는 이동속도 더하기값
+    public Vector3 skillMaxSize; // 스킬 커질 때 최대 사이즈
     [Header("기타")]
     public GameObject spawnEffectPrefab; // 스폰 프리팹
     public GameObject projectilePrefab; // 스킬 프리팹

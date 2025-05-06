@@ -42,8 +42,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1199370025
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GameObject
+    uniqueID: 3983811595
+    locked: 0
+  - name: UI
+    uniqueID: 701152187
     locked: 0
   m_RenderingLayers:
   - Default

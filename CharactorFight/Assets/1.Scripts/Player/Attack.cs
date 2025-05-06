@@ -21,23 +21,28 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        PlayerHealth damageable = col.GetComponent<PlayerHealth>();
-        if (damageable != null && player.GetCurChoice() != col.GetComponent<PlayerBase>().GetCurChoice())
-        {
-            bool gotHit = damageable.Hit(attackDmg, knockback , transform.position);
-            if (gotHit)
-            {
-                Debug.Log(col.name + " hit for " + attackDmg);
-                if (mpCharge)
-                    pMana.GetComponent<PlayerMana>().MpCharge(chargeMana);
-            }
-        }
+        DefaultAttack(col);
     }
     private void OnEnable()
     {
         if (audio.clip != null)
         {
             audio.Play();
+        }
+    }
+
+    private void DefaultAttack(Collider2D col)
+    {
+        PlayerHealth damageable = col.GetComponent<PlayerHealth>();
+        if (damageable != null && player.GetCurChoice() != col.GetComponent<PlayerBase>().GetCurChoice())
+        {
+            bool gotHit = damageable.Hit(attackDmg, knockback, transform.position);
+            if (gotHit)
+            {
+                Debug.Log(col.name + " hit for " + attackDmg);
+                if (mpCharge)
+                    pMana.GetComponent<PlayerMana>().MpCharge(chargeMana);
+            }
         }
     }
     private void PlayerInitialize()

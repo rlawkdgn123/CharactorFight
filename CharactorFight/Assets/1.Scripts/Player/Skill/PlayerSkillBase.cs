@@ -6,26 +6,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerSkillystem : MonoBehaviour
+public class PlayerSkillBase : MonoBehaviour
 {
-    public Image[] SkillIcon = new Image[2];
-    public Image[] SkillIconShadow = new Image[2];
-    public SkillData[] skillList;// 사용 가능한 스킬 목록
+    [Header("DefaultSettings")]
+    Rigidbody2D rb;
+    Animator anim;
+    [SerializeField] private GameObject ui;
     public PlayerBase player;
     public PlayerMana pm;
+
+    [Header("SkillSettings")]
+    public Image[] SkillIcon;
+    public Image[] SkillIconShadow;
+    public SkillData[] skillList;// 사용 가능한 스킬 목록
     //public bool skillOn;
     [SerializeField] private Vector3 scale;
     public bool[] skillOn = new bool[2];//스킬 활성화 여부
     public bool skillCoolDown = false; // 스킬 쿨타임 진행중 여부;
     //[SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
-    Rigidbody2D rb;
-    Animator anim;
-    TouchingDirection touchingDirection;
     [SerializeField] public int selectedSkillIndex;
     [SerializeField] private bool isCoolDown = false;
     [SerializeField] private bool isSkill = false;
     //[SerializeField] private PlayerSoundSystem soundSystem;
-    private void Awake() {
+    private void Start() {
         PlayerInitialize();
 
         /*for (int i = 0; i < skillList.Length; i++)
@@ -38,11 +41,47 @@ public class PlayerSkillystem : MonoBehaviour
 
     public void PlayerInitialize()
     {
+        this.tag = "Player";
+
         player = gameObject.GetComponent<PlayerBase>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         pm = gameObject.GetComponent<PlayerMana>();
-        //td = gameObject.GetComponent<TouchingDirection>();
+
+        ui = player.GetPlayerUI();
+        SkillIcon = new Image[skillList.Length];
+        SkillIconShadow = new Image[skillList.Length];
+        string barName = "";
+
+        if (player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { barName = "P1_PlayerSkillList"; }
+        else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { barName = "P2_PlayerSkillList"; }
+
+        Transform tr = ui.transform.Find(barName);
+        print(barName + "접근");
+        if(tr != null)
+        {
+            for (int i = 0; i < skillList.Length; i++)
+            {
+                if (player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { barName = "P1_SkillSprite" + (i + 1); }
+                else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { barName = "P2_SkillSprite" + (i + 1); }
+
+                Transform tr2 = tr.Find(barName);
+
+                if (tr2 != null)
+                {
+                    print(barName + "접근 : " + tr2.name);
+                    IconFill icf = tr2.GetComponent<IconFill>();
+                    icf.FillIcon(skillList[i].skillIcon);
+                    SkillIcon[i] = icf.images[2];
+                    SkillIconShadow[i] = icf.images[1];
+                }
+                else { print(barName + "을 찾을 수 없습니다."); }
+            }
+        }
+        else
+        {
+            print(barName + "을 찾을 수 없습니다.");
+        }
         
     }
 
@@ -62,9 +101,10 @@ public class PlayerSkillystem : MonoBehaviour
         if (player.GetCurDirState(PlayerBase.DirState.Ground) && !player.GetKeyIgnore() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             selectedSkillIndex = 0;
-            Debug.Log("스킬사용 1");
+            
             if (!skillOn[selectedSkillIndex] && pm.GetCurMana() >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
             {
+                Debug.Log("스킬사용 1");
                 skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
                 anim.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
                  pm.SubCurMana(skillList[selectedSkillIndex].manaCost); // 마나 소모량에 따라 감소

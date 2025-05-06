@@ -66,12 +66,13 @@ public class PlayerBase : MonoBehaviour
     protected PlayerHealth ph;
     protected GameObject psObj;
     protected PlatformSensor ps;
-    protected PlayerSkillystem psk;
+    protected PlayerSkillBase psk;
 
     
 
     [Header("Choice")]
     [SerializeField] protected PlayerChoice curChoice = PlayerChoice.None;
+    [SerializeField] protected PlayerChoice prevChoice = PlayerChoice.None;
     [SerializeField] protected bool IsChoice; // 선택 여부
 
     [Header("ChoiceCharactor")]
@@ -97,8 +98,9 @@ public class PlayerBase : MonoBehaviour
     [Header("AnimationInfo")]
     [SerializeField] protected float dashEndTime;
 
-
-
+    [Header("LayerSettings")]
+    [SerializeField] Transform[] thisObj;
+    [SerializeField] Attack[] thisAtk;
 
 
 
@@ -111,6 +113,7 @@ public class PlayerBase : MonoBehaviour
     private void Awake()
     {
         PlayerInitialize(); // 컴포넌트 연결
+
     }
     void Update()
     {
@@ -132,6 +135,7 @@ public class PlayerBase : MonoBehaviour
     protected void DefaultFixedUpadateSetting()
     {
         pMove.Deceleration();
+        if (prevChoice != curChoice) { TagLayerReset(curChoice); prevChoice = curChoice; }
     }
 
     public void PlayerStateStart(PlayerState state)       //상태 변경 하는 함수
@@ -179,7 +183,8 @@ public class PlayerBase : MonoBehaviour
                 //동작변경 // movespeed = 0;
                 break;
             case PlayerState.Skill1:
-                anim.SetTrigger(AnimationStrings.SkillTrigger1);
+                //anim.SetTrigger(AnimationStrings.SkillTrigger1);
+                psk.OnSkill1();
                 state_time = Time.time + psk.skillList[0].motionTime;
                 StopAndIgnore(true);
                 break;
@@ -278,11 +283,10 @@ public class PlayerBase : MonoBehaviour
                 }
                 break;
             case PlayerState.Skill1:
-                psk.OnSkill1();
-                if (IsAlive && Time.time > state_time) { anim.SetBool(AnimationStrings.isDashing, false); print(state_time - dashEndTime); }
+                
 
-                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); break; }
-                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); break; }
+                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
+                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); StopAndIgnore(false); break; }
                 break;
             default:
                 break;
@@ -411,6 +415,19 @@ public class PlayerBase : MonoBehaviour
         getKeyIgnore = getKey;
     }
 
+    protected void TagLayerReset(PlayerChoice choice)
+    {
+        switch (choice)
+        {
+            case PlayerChoice.P1: 
+                for(int i = 0; i < thisObj.Length; i++){ if (thisObj[i].CompareTag("Attack")) { continue; } thisObj[i].gameObject.layer = LayerMask.NameToLayer("P1"); }
+                for (int i = 0; i < thisAtk.Length; i++) { thisAtk[i].gameObject.layer = LayerMask.NameToLayer("P1Attack"); } break;
+            case PlayerChoice.P2:
+                for (int i = 0; i < thisObj.Length; i++) { if (thisObj[i].CompareTag("Attack")) { continue; } thisObj[i].gameObject.layer = LayerMask.NameToLayer("P2"); }
+                for (int i = 0; i < thisAtk.Length; i++) { thisAtk[i].gameObject.layer = LayerMask.NameToLayer("P2Attack"); }break;
+            default: break;
+        }
+    }
     protected void PlayerInitialize()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -421,9 +438,15 @@ public class PlayerBase : MonoBehaviour
         pMana = gameObject.GetComponent<PlayerMana>();
         pAtk = gameObject.GetComponent<PlayerAttack>();
         ph = gameObject.GetComponent<PlayerHealth>();
-        psk = gameObject.GetComponent<PlayerSkillystem>();
+        psk = gameObject.GetComponent<PlayerSkillBase>();
 
         tr = gameObject.transform;
+
+        thisObj = GetComponentsInChildren<Transform>(true);
+        thisAtk = GetComponentsInChildren<Attack>(true);
+        prevChoice = curChoice;
+        TagLayerReset(curChoice);
+
         if (curChoice == PlayerChoice.P1) { ui = GameObject.Find("Player1_UI"); }
         else if (curChoice == PlayerChoice.P2) { ui = GameObject.Find("Player2_UI"); }
         else {print(this.name + "의 curChoice가 선택되지 않았습니다."); }

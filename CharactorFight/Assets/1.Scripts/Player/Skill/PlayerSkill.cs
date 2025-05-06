@@ -28,7 +28,7 @@ public class PlayerSkill : MonoBehaviour
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {   // 콜라이더2D에 감지되면
-        if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우
+        if (collision.tag.Equals("Enemy") || collision.tag.Equals("Player"))  // 태그값이 보스나 적일 경우
         {
             /*Damageable damageable = collision.GetComponent<Damageable>();*/   // 해당 적의 Damageable스크립트 접근 (즉, 맞는 대상에게 Damageable 스크립트가 있어야 함)
             //Hit hit = collision.GetComponent<Hit>();
