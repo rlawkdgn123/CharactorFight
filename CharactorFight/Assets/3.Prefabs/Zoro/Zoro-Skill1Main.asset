@@ -22,7 +22,7 @@ MonoBehaviour:
   range: 0
   spawnEffect: 1
   spawnDelay: 1
-  duration: 5
+  duration: 4
   knockback: {x: 0, y: 0}
   spawnPosx: 2
   spawnPosy: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   skillPenetrate: 1
   skillGrowing: 1
   skillFaster: 0
-  skillSpeed: 5
+  skillSpeed: 7
   skillAddSpeed: 0
   skillMaxSize: {x: 4, y: 4, z: 0}
   spawnEffectPrefab: {fileID: 1012403940183493251, guid: ba7d2225857c58b46b77149483ffbaf8, type: 3}
