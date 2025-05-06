@@ -184,6 +184,7 @@ public class PlayerBase : MonoBehaviour
                 break;
             case PlayerState.Skill1:
                 //anim.SetTrigger(AnimationStrings.SkillTrigger1);
+                print("접근스킬1");
                 psk.OnSkill1();
                 state_time = Time.time + psk.skillList[0].motionTime;
                 StopAndIgnore(true);

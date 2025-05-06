@@ -57,7 +57,6 @@ public class PlayerSkillBase : MonoBehaviour
         else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { barName = "P2_PlayerSkillList"; }
 
         Transform tr = ui.transform.Find(barName);
-        print(barName + "접근");
         if(tr != null)
         {
             for (int i = 0; i < skillList.Length; i++)
@@ -69,7 +68,6 @@ public class PlayerSkillBase : MonoBehaviour
 
                 if (tr2 != null)
                 {
-                    print(barName + "접근 : " + tr2.name);
                     IconFill icf = tr2.GetComponent<IconFill>();
                     icf.FillIcon(skillList[i].skillIcon);
                     SkillIcon[i] = icf.images[2];
@@ -98,8 +96,9 @@ public class PlayerSkillBase : MonoBehaviour
     }
     public void OnSkill1()   // A키, 기둥 소환 공격
     {
-        if (player.GetCurDirState(PlayerBase.DirState.Ground) && !player.GetKeyIgnore() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (player.GetCurDirSetGround() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
+            Debug.Log("통과 1");
             selectedSkillIndex = 0;
             
             if (!skillOn[selectedSkillIndex] && pm.GetCurMana() >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
@@ -126,43 +125,33 @@ public class PlayerSkillBase : MonoBehaviour
             isSkill = true;
             Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
             yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
-            if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
-            {
-                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
-                spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-                //soundSystem.SkillSound(selectedSkillIndex);
-                GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
-                skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-                if (skillList[selectedSkillIndex].freezePlayerPos == true)
-                {
-                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                    Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
-                }
+            
+            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
+            spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+            //soundSystem.SkillSound(selectedSkillIndex);
+            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+            skill.GetComponent<PlayerSkill>().player = player;
 
-                Destroy(skill, skillList[selectedSkillIndex].duration);
-                print(skill + "스킬 사용. 우");
-            }
-            else
+            if (transform.localScale.x < 0) // 플레이어가 왼쪽을 바라보면
             {
-                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
-                spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-                GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
                 Vector3 localScale = skill.transform.localScale;
                 localScale.x = localScale.x * (-1); // 스킬 뒤집기
                 skill.transform.localScale = localScale;
-
-                skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-
-                if (skillList[selectedSkillIndex].freezePlayerPos == true)
-                {
-                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                    Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
-                }
-
-                Destroy(skill, skillList[selectedSkillIndex].duration);
                 print(skill + "스킬 사용. 좌");
             }
-            
+            else { print(skill + "스킬 사용. 우"); }
+
+            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
+            if (player.GetCurChoice(PlayerBase.PlayerChoice.P1)) { skill.layer = LayerMask.NameToLayer("P1Attack"); }
+            else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2)) { skill.layer = LayerMask.NameToLayer("P2Attack");  }
+                
+            if (skillList[selectedSkillIndex].freezePlayerPos == true)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+            }
+
+            Destroy(skill, skillList[selectedSkillIndex].duration);
         }
         //skillAudio.clip = skillList[selectedSkillIndex].skillSpawnAudioSource;  // skillAudio 자식 오브젝트에 사용할 사운드 할당 및 실행
         //skillAudio.Play();
