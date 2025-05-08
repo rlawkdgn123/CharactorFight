@@ -104,14 +104,14 @@ public class PlayerMove : MonoBehaviour
 
         if (player.GetCurChoice() == PlayerBase.PlayerChoice.P1 && !player.GetKeyIgnore()) // Player 1
         {
-            if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
+            if (Input.GetKeyDown(KeyCode.W) && curjumpCount < jumpCountMax-1 && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
             {
-                curjumpCount++;
                 anim.SetTrigger(AnimationStrings.jumpTrgger);
                 rb.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
+                curjumpCount++;
             }
-            
-            if ((player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall))&& curjumpCount >= jumpCountMax)
+
+            if (player.GetCurDirState(DirState.Ground))
             {
                 curjumpCount = 0;
             }
@@ -146,14 +146,14 @@ public class PlayerMove : MonoBehaviour
         else if (player.GetCurChoice() == PlayerBase.PlayerChoice.P2 && !player.GetKeyIgnore()) // Player 2
         {
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
+            if (Input.GetKeyDown(KeyCode.UpArrow) && curjumpCount < jumpCountMax-1 && !player.GetCurPlayerState(PlayerState.Dash)) // 점프
             {
-                curjumpCount++;
                 anim.SetTrigger(AnimationStrings.jumpTrgger);
                 rb.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
+                curjumpCount++;
             }
 
-            if ((player.GetCurDirState(DirState.Ground) || player.GetCurDirState(DirState.GroundWall)) && curjumpCount >= jumpCountMax)
+            if (player.GetCurDirState(DirState.Ground))
             {
                 curjumpCount = 0;
             }

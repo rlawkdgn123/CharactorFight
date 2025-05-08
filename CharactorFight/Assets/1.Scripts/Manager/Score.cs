@@ -14,21 +14,21 @@ public class Score : MonoBehaviour
         if (winTextChild != null)
             winText = winTextChild.GetComponent<TMP_Text>();
     }
-    private void Start()
-    {
-        score.text = GameManager.Instance.p1Score + " : " + GameManager.Instance.p2Score;
-    }
+
     private void Update()
     {
+        score.text = GameManager.Instance.p1Score + " : " + GameManager.Instance.p2Score;
         if (GameManager.Instance.p1Score >= GameManager.Instance.endScore)
         {
             winText.text = "Player1 Win!!";
             winText.gameObject.SetActive(true);
+            GameManager.Instance.isGameSet = true;
         }
         else if (GameManager.Instance.p2Score >= GameManager.Instance.endScore)
         {
             winText.text = "Player2 Win!!";
             winText.gameObject.SetActive(true);
+            GameManager.Instance.isGameSet = true;
         }
     }
 }

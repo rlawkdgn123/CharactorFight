@@ -1377,7 +1377,7 @@ GameObject:
   - component: {fileID: 1278095523}
   - component: {fileID: 1278095522}
   m_Layer: 5
-  m_Name: CharactorFight
+  m_Name: Characteright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1399,7 +1399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281, y: 396}
+  m_AnchoredPosition: {x: -318, y: 396}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278095522
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CharactorFight
+  m_text: "\rCharacterFight"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f24aabf2e67407e49b94acaa3b26b547, type: 2}
   m_sharedMaterial: {fileID: 4048573291618970426, guid: f24aabf2e67407e49b94acaa3b26b547, type: 2}
@@ -1670,8 +1670,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1Score: 0
   p2Score: 0
-  endScore: 0
-  isGameover: 0
+  endScore: 3
+  isGameSet: 0
   yPosMax: 2.1
   yPosMin: -2.1
 --- !u!4 &1394819611
@@ -2334,6 +2334,7 @@ GameObject:
   - component: {fileID: 2000092600}
   - component: {fileID: 2000092599}
   - component: {fileID: 2000092598}
+  - component: {fileID: 2000092601}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2404,19 +2405,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000092599}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1394819610}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: MainScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &2000092599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,6 +2444,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000092596}
   m_CullTransparentMesh: 1
+--- !u!114 &2000092601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000092596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773430b275d1dc94d97593ff604795a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &2029703240
 GameObject:
   m_ObjectHideFlags: 0

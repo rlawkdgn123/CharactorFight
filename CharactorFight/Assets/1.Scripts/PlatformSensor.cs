@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlatformSensor : MonoBehaviour
@@ -6,7 +7,7 @@ public class PlatformSensor : MonoBehaviour
     [SerializeField] private float groundActiveDis = 5f; // 바닥 활성화 거리
     [SerializeField] private float groundRayWidth = 5f; // 바닥감지 레이 길이
     [SerializeField] private float groundRayStartPosition = 5f; // 바닥감지 레이 길이
-
+    [SerializeField] private bool isDropping = false;
     [SerializeField] public GameObject[] hitPlatformObjs = new GameObject[5];
     [SerializeField] private LayerMask layerNumPlayer;
     private void Start()
@@ -15,7 +16,38 @@ public class PlatformSensor : MonoBehaviour
     }
     private void Update()
     {
-        GroundActive();
+        if (player.GetCurChoice(PlayerBase.PlayerChoice.P1)&&Input.GetKeyDown(KeyCode.S) && !isDropping)
+            StartCoroutine(PlatformListClear());
+        else if (player.GetCurChoice(PlayerBase.PlayerChoice.P2) && Input.GetKeyDown(KeyCode.DownArrow) && !isDropping)
+            StartCoroutine(PlatformListClear());
+
+        if (!isDropping)
+            GroundActive();
+    }
+    IEnumerator PlatformListClear()
+    {
+        isDropping = true;
+
+        // 기존 플랫폼 저장 및 충돌 무시
+        for (int i = 0; i < hitPlatformObjs.Length; i++)
+        {
+            GameObject obj = hitPlatformObjs[i];
+            if (obj != null)
+            {
+                BoxCollider2D boxCol = obj.GetComponent<BoxCollider2D>();
+                if (boxCol != null)
+                {
+                    boxCol.includeLayers &= ~layerNumPlayer;  // 충돌 비활성화
+                }
+            }
+            hitPlatformObjs[i] = null; // 저장된 오브젝트도 비움
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        isDropping = false;
+
+        // 0.5초 후 충돌 복원은 GroundActive()가 다시 동작하면서 처리됨
     }
     private void GroundActive()
     {
@@ -44,7 +76,7 @@ public class PlatformSensor : MonoBehaviour
                 BoxCollider2D boxCol = hitPlatformObjs[i].GetComponent<BoxCollider2D>();
                 if (boxCol != null)
                 {
-                    boxCol.includeLayers = layerNumPlayer;
+                    boxCol.includeLayers |= layerNumPlayer;
                 }
             }
         }

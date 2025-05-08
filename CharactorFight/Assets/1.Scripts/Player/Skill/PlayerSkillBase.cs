@@ -25,8 +25,8 @@ public class PlayerSkillBase : MonoBehaviour
     public bool skillCoolDown = false; // 스킬 쿨타임 진행중 여부;
     //[SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
     [SerializeField] public int selectedSkillIndex;
-    [SerializeField] private bool isCoolDown = false;
-    [SerializeField] private bool isSkill = false;
+    [SerializeField] protected bool isCoolDown = false;
+    [SerializeField] protected bool isSkill = false;
     //[SerializeField] private PlayerSoundSystem soundSystem;
     private void Start() {
         PlayerInitialize();
@@ -94,7 +94,7 @@ public class PlayerSkillBase : MonoBehaviour
             
         }*/
     }
-    public void OnSkill1()  
+    virtual public void OnSkill1()  
     {
         if (player.GetCurDirSetGround() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
@@ -115,7 +115,7 @@ public class PlayerSkillBase : MonoBehaviour
             }
         }
     }
-    public void OnSkill2()  
+    virtual public void OnSkill2()  
     {
         if (player.GetCurDirSetGround() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {

@@ -184,16 +184,16 @@ public class PlayerBase : MonoBehaviour
                 break;
             case PlayerState.Skill1:
                 //anim.SetTrigger(AnimationStrings.SkillTrigger1);
-                print("접근스킬1");
                 psk.OnSkill1();
                 state_time = Time.time + psk.skillList[0].motionTime;
                 StopAndIgnore(true);
                 break;
-            case PlayerState.Skill2:
-                anim.SetTrigger(AnimationStrings.SkillTrigger2);
+/*            case PlayerState.Skill2:
+                //anim.SetTrigger(AnimationStrings.SkillTrigger2);
                 state_time = Time.time + psk.skillList[1].motionTime;
+                psk.OnSkill2();
                 StopAndIgnore(true);
-                break;
+                break;*/
             case PlayerState.Hit:
                 state_time = Time.time + 0.3f;
                 break;
@@ -201,7 +201,6 @@ public class PlayerBase : MonoBehaviour
                 state_time = Time.time + 3.0f;
                 StopAndIgnore(true);
                 anim.SetBool(AnimationStrings.isAlive, false);
-                
                 if(curChoice == PlayerChoice.P1) { GameManager.Instance.p2Score++; }
                 else if (curChoice == PlayerChoice.P2) { GameManager.Instance.p1Score++; }
                 break;
@@ -292,8 +291,13 @@ public class PlayerBase : MonoBehaviour
                 if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
                 if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); StopAndIgnore(false); break; }
                 break;
+/*            case PlayerState.Skill2:
+                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
+                if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); StopAndIgnore(false); break; }
+                break;*/
             case PlayerState.Death:
                 StopAndIgnore(true);
+                
                 if (!IsAlive && Time.time > state_time && (GameManager.Instance.p1Score < GameManager.Instance.endScore && GameManager.Instance.p2Score < GameManager.Instance.endScore)) { GameManager.Instance.Restart(); break; }
                 if (IsAlive) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
                 break;
