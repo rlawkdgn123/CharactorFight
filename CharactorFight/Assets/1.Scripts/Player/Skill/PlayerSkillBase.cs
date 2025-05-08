@@ -94,7 +94,7 @@ public class PlayerSkillBase : MonoBehaviour
             
         }*/
     }
-    public void OnSkill1()   // A키, 기둥 소환 공격
+    public void OnSkill1()  
     {
         if (player.GetCurDirSetGround() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
@@ -103,9 +103,9 @@ public class PlayerSkillBase : MonoBehaviour
             
             if (!skillOn[selectedSkillIndex] && pm.GetCurMana() >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
             {
-                Debug.Log("스킬사용 1");
+                Debug.Log("스킬사용 2");
                 skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
-                anim.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
+                anim.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
                  pm.SubCurMana(skillList[selectedSkillIndex].manaCost); // 마나 소모량에 따라 감소
                 StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
             }
@@ -115,7 +115,27 @@ public class PlayerSkillBase : MonoBehaviour
             }
         }
     }
-   
+    public void OnSkill2()  
+    {
+        if (player.GetCurDirSetGround() && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        {
+            Debug.Log("통과 1");
+            selectedSkillIndex = 1;
+
+            if (!skillOn[selectedSkillIndex] && pm.GetCurMana() >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
+            {
+                Debug.Log("스킬사용 1");
+                skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
+                anim.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
+                pm.SubCurMana(skillList[selectedSkillIndex].manaCost); // 마나 소모량에 따라 감소
+                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
+            }
+            else
+            {
+                Debug.Log("스킬사용 1 실패");
+            }
+        }
+    }
 
     IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
         // 스킬 사용 로직
@@ -130,6 +150,22 @@ public class PlayerSkillBase : MonoBehaviour
             spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
             //soundSystem.SkillSound(selectedSkillIndex);
             GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+            if (skillList[selectedSkillIndex].spawnEffect && skillList[selectedSkillIndex].spawnEffectPrefab != null)
+            {
+                
+                if (transform.localScale.x < 0) // 플레이어가 왼쪽을 바라보면
+                {
+                    GameObject spawnEffect = Instantiate(skillList[selectedSkillIndex].spawnEffectPrefab, new Vector3(spawnPosition.x - 2, spawnPosition.y, 0), Quaternion.identity);
+                    Vector3 localScale = spawnEffect.transform.localScale;
+                    spawnEffect.transform.localScale *= (-1);
+                    Destroy(spawnEffect, 1f);
+                    }
+                else
+                {
+                    GameObject spawnEffect = Instantiate(skillList[selectedSkillIndex].spawnEffectPrefab, new Vector3(spawnPosition.x + 2, spawnPosition.y, 0), Quaternion.identity);
+                    Destroy(spawnEffect, 1f);
+                }
+            }
             skill.GetComponent<PlayerSkill>().player = player;
 
             if (transform.localScale.x < 0) // 플레이어가 왼쪽을 바라보면
@@ -164,7 +200,6 @@ public class PlayerSkillBase : MonoBehaviour
     IEnumerator SkillCoolDown(int selectedSkillIndex) {
         float nowtime = 0;
         int SkillIndex = selectedSkillIndex;
-        print("쿨쿨");
         SkillIcon[SkillIndex].fillAmount = 0f;
         while (nowtime <= skillList[SkillIndex].cooldown)
         {

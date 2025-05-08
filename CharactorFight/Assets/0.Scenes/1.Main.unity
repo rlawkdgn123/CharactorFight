@@ -668,18 +668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roronoa Zoro (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5840871737863673905, guid: b815e7c423f748046b629e7f183366af, type: 3}
-      propertyPath: dashSpeed.air
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5840871737863673905, guid: b815e7c423f748046b629e7f183366af, type: 3}
-      propertyPath: dashSpeed.ground
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7147250724035789746, guid: b815e7c423f748046b629e7f183366af, type: 3}
-      propertyPath: curMana
-      value: 600
-      objectReference: {fileID: 0}
     - target: {fileID: 7708156565998120600, guid: b815e7c423f748046b629e7f183366af, type: 3}
       propertyPath: curChoice
       value: 2
@@ -7907,10 +7895,6 @@ PrefabInstance:
     - target: {fileID: 2312718557001196059, guid: b815e7c423f748046b629e7f183366af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2729032109878881199, guid: b815e7c423f748046b629e7f183366af, type: 3}
-      propertyPath: chargeMana
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4311931109341483701, guid: b815e7c423f748046b629e7f183366af, type: 3}
       propertyPath: m_Name

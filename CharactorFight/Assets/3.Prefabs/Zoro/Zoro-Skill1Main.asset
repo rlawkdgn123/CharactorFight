@@ -32,7 +32,7 @@ MonoBehaviour:
   skillGrowing: 1
   skillGrowingSpeed: 7
   skillFaster: 0
-  skillSpeed: 5
+  skillSpeed: 7
   skillAddSpeed: 0
   skillMaxSize: {x: 6, y: 6, z: 0}
   spawnEffectPrefab: {fileID: 1012403940183493251, guid: ba7d2225857c58b46b77149483ffbaf8, type: 3}
