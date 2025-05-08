@@ -30,32 +30,31 @@ public class PlayerSkill : MonoBehaviour
             this.transform.Translate(Vector3.right * (skillData.skillSpeed * 0.01f));// 오른쪽으로 스피드*0.01f만큼 이동
         }
 
-        if (skillData.skillGrowing)
+        if (skillData.skillGrowing && transform.localScale.x < 0)
         {
             Vector3 currentScale = transform.localScale;
-
             // x 축 크기 증가
-            if (currentScale.x < skillData.skillMaxSize.x)
-            {
-                currentScale.x += Time.deltaTime;
-            }
-
+            if (currentScale.x > -skillData.skillMaxSize.x)
+                currentScale.x -= Time.deltaTime * skillData.skillGrowingSpeed;
             // y 축 크기 증가
             if (currentScale.y < skillData.skillMaxSize.y)
-            {
-                currentScale.y += Time.deltaTime;
-            }
-
-            // z 축도 증가해야 한다면
-            if (currentScale.z < skillData.skillMaxSize.z)
-            {
-                currentScale.z += Time.deltaTime;
-            }
-
+                currentScale.y += Time.deltaTime * skillData.skillGrowingSpeed; 
             // 크기 적용
             transform.localScale = currentScale;
         }
-
+        else if(skillData.skillGrowing && transform.localScale.x >= 0)
+        {
+            Vector3 currentScale = transform.localScale;
+            // x 축 크기 증가
+            if (currentScale.x < skillData.skillMaxSize.x)
+                currentScale.x += Time.deltaTime * skillData.skillGrowingSpeed;
+            // y 축 크기 증가
+            if (currentScale.y < skillData.skillMaxSize.y)
+                currentScale.y += Time.deltaTime * skillData.skillGrowingSpeed; 
+            // z 축도 증가해야 한다면
+            // 크기 적용
+            transform.localScale = currentScale;
+        }
     }
     private void OnTriggerEnter2D(Collider2D col) {   // 콜라이더2D에 감지되면
         if (col.tag.Equals("Enemy") || col.tag.Equals("Player"))  // 태그값이 적이거나 플레이어일 경우

@@ -28,6 +28,7 @@ public class SkillData : ScriptableObject
     public bool skillFire; // 스킬 프리팹 발사 여부
     public bool skillPenetrate; // 발사체 관통 여부
     public bool skillGrowing; // 지속시간 따라 스킬 크기 커지는 여부
+    public float skillGrowingSpeed; // 커지는 속도
     public bool skillFaster; // 지속시간 따라 스킬 속도 빨라지는 여부
     public float skillSpeed; // 발사체 및 소환체 이동속도
     public bool skillAddSpeed; // 지속시간 따라 빨라지는 이동속도 더하기값

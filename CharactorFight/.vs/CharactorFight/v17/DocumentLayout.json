@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\kjh\\unity\\charactorfight\\charactorfight\\assets\\1.scripts\\platformsensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\platformsensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\kjh\\unity\\charactorfight\\charactorfight\\assets\\playermark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\playermark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\kjh\\unity\\charactorfight\\charactorfight\\assets\\1.scripts\\player\\skill\\playerskillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\skill\\playerskillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\SkillBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\SkillBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\skill\\playerskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\skill\\playerskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\skill\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\skill\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\skill\\playerskillsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\skill\\playerskillsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playerzoro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playerzoro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\platformsensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\platformsensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,10 +71,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\1.Scripts\\Player\\PlayerMp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\1.scripts\\player\\playermana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\1.scripts\\player\\playermana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\MP_Manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\1.Scripts\\Player\\MP_Manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\assets\\skillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACDF3649-A648-6F07-90EA-837E894A38C2}|Assembly-CSharp.csproj|solutionrelative:assets\\skillbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -102,6 +114,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerMark.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\PlayerMark.cs",
+              "RelativeDocumentMoniker": "Assets\\PlayerMark.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\PlayerMark.cs",
+              "RelativeToolTip": "Assets\\PlayerMark.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T08:50:23.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerSkillBase.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkillBase.cs",
+              "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkillBase.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkillBase.cs",
+              "RelativeToolTip": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkillBase.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAwwKYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T07:18:27.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SkillData.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\SkillData.cs",
+              "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Skill\\SkillData.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\SkillData.cs",
+              "RelativeToolTip": "Assets\\1.Scripts\\Player\\Skill\\SkillData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T06:50:37.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerSkill.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkill.cs",
+              "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkill.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkill.cs",
+              "RelativeToolTip": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkill.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T06:32:09.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "PlatformSensor.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\PlatformSensor.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\PlatformSensor.cs",
@@ -109,24 +171,11 @@
               "RelativeToolTip": "Assets\\1.Scripts\\PlatformSensor.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAIwHAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T06:22:20.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T06:22:20.467Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerSkillSystem.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkillSystem.cs",
-              "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkillSystem.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Skill\\PlayerSkillSystem.cs",
-              "RelativeToolTip": "Assets\\1.Scripts\\Player\\Skill\\PlayerSkillSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T06:20:16.289Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerHealth.cs",
@@ -138,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "PlayerHelth.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerHelth.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerHelth.cs",
@@ -149,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "PlayerAttack.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\PlayerAttack.cs",
               "RelativeDocumentMoniker": "Assets\\PlayerAttack.cs",
@@ -161,20 +210,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "PlayerBase.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerBase.cs",
               "RelativeToolTip": "Assets\\1.Scripts\\Player\\PlayerBase.cs",
-              "ViewState": "AgIAAG4BAAAAAAAAAIAzwH4BAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA1wA4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T11:13:38.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T11:13:38.297Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "Platform.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Platform.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Platform.cs",
@@ -186,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "SetBoolBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\VisualStudio\\Project\\GangMaRok\\Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\VisualStudio\\Project\\GangMaRok\\Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
@@ -194,11 +242,12 @@
               "RelativeToolTip": "..\\..\\..\\VisualStudio\\Project\\GangMaRok\\Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T05:57:37.13Z"
+              "WhenOpened": "2025-04-22T05:57:37.13Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerController.cs",
@@ -209,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "PlayerSoundSystem.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerSoundSystem.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerSoundSystem.cs",
@@ -220,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "MP_Manage.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\MP_Manage.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\MP_Manage.cs",
@@ -232,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "PlayerMana.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerMana.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerMana.cs",
@@ -244,19 +293,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "PlayerMove.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerMove.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerMove.cs",
               "RelativeToolTip": "Assets\\1.Scripts\\Player\\PlayerMove.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAApwOsAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAywOYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-23T05:08:58.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "PlayerMp.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerMp.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerMp.cs",
@@ -268,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Attack.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Attack.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Attack.cs",
@@ -280,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "AnimationStrings.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Anim\\AnimationStrings.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Anim\\AnimationStrings.cs",
@@ -292,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "Elevator.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\7.Tilemap\\Cainos\\Pixel Art Platformer - Village Props\\Script\\Elevator.cs",
               "RelativeDocumentMoniker": "Assets\\7.Tilemap\\Cainos\\Pixel Art Platformer - Village Props\\Script\\Elevator.cs",
@@ -304,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "TouchingDirection.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Move\\TouchingDirection.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Move\\TouchingDirection.cs",
@@ -316,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "Damageable.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\Damageable.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\Damageable.cs",
@@ -328,19 +377,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 2,
               "Title": "SkillBase.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\SkillBase.cs",
               "RelativeDocumentMoniker": "Assets\\SkillBase.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\SkillBase.cs",
               "RelativeToolTip": "Assets\\SkillBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T06:05:45.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "PlayerZoro.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\KJH\\Unity\\CharactorFight\\CharactorFight\\Assets\\1.Scripts\\Player\\PlayerZoro.cs",
               "RelativeDocumentMoniker": "Assets\\1.Scripts\\Player\\PlayerZoro.cs",

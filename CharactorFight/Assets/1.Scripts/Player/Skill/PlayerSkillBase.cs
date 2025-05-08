@@ -164,6 +164,7 @@ public class PlayerSkillBase : MonoBehaviour
     IEnumerator SkillCoolDown(int selectedSkillIndex) {
         float nowtime = 0;
         int SkillIndex = selectedSkillIndex;
+        print("ÄðÄð");
         SkillIcon[SkillIndex].fillAmount = 0f;
         while (nowtime <= skillList[SkillIndex].cooldown)
         {

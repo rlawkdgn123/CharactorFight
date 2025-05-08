@@ -199,12 +199,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 75
-  chargeMana: 5
+  chargeMana: 75
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
   audio: {fileID: 0}
-  mpCharge: 0
+  mpCharge: 1
 --- !u!1 &2516769886335544882
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,12 +406,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 25
-  chargeMana: 5
+  chargeMana: 25
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
   audio: {fileID: 0}
-  mpCharge: 0
+  mpCharge: 1
 --- !u!1 &3840939527163824563
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +488,7 @@ Transform:
   m_Children:
   - {fileID: 1245372942261566099}
   - {fileID: 104182117879468126}
+  - {fileID: 1339076000491421812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3757680367737233065
@@ -704,8 +705,8 @@ MonoBehaviour:
   GhostEffect: 0
   makeGhost: 1
   dashSpeed:
-    ground: 6
-    air: 6
+    ground: 9
+    air: 9
   dashDuration:
     ground: 0.1
     air: 0.1
@@ -737,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db479b0cf21a7af48b8d6ff984f66ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMana: 300
+  curMana: 600
   maxMana: 1000
   mpBar: {fileID: 0}
   player: {fileID: 0}
@@ -1027,12 +1028,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 45
-  chargeMana: 5
+  chargeMana: 50
   knockback: {x: 0, y: 0}
   player: {fileID: 0}
   pMana: {fileID: 0}
   audio: {fileID: 0}
   mpCharge: 0
+--- !u!1 &4877412195261658364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339076000491421812}
+  - component: {fileID: 4084680435203721451}
+  - component: {fileID: 3747127142357468870}
+  m_Layer: 0
+  m_Name: PlayerSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339076000491421812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877412195261658364}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2312718557001196059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4084680435203721451
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877412195261658364}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -311155701
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.32, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &3747127142357468870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877412195261658364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e095d717f1ae64a9cb18e75a46cb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mark:
+  - {fileID: 21300000, guid: ce8f8f2abc12b7342b51bc24743db1a9, type: 3}
+  - {fileID: 21300000, guid: 39c54ae2b3ce20446828676868144675, type: 3}
 --- !u!1 &7849230483069259465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,9 +1392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 50
-  chargeMana: 5
+  chargeMana: 50
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
   audio: {fileID: 0}
-  mpCharge: 0
+  mpCharge: 1

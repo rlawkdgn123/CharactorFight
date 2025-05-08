@@ -15,8 +15,8 @@ MonoBehaviour:
   skillName: Zoro-Skill1(Main)
   skillNum: 0
   skillIcon: {fileID: 21300000, guid: fca201e5ba4948d4f992361e6b45a42d, type: 3}
-  cooldown: 0
-  manaCost: 0
+  cooldown: 10
+  manaCost: 300
   damage: 300
   attackSpeed: 0
   range: 0
@@ -24,16 +24,17 @@ MonoBehaviour:
   spawnDelay: 1
   duration: 4
   knockback: {x: 0, y: 0}
-  spawnPosx: 2
+  spawnPosx: 0
   spawnPosy: 0
   motionTime: 1.083
   skillFire: 1
   skillPenetrate: 1
   skillGrowing: 1
+  skillGrowingSpeed: 7
   skillFaster: 0
-  skillSpeed: 7
+  skillSpeed: 5
   skillAddSpeed: 0
-  skillMaxSize: {x: 4, y: 4, z: 0}
+  skillMaxSize: {x: 6, y: 6, z: 0}
   spawnEffectPrefab: {fileID: 1012403940183493251, guid: ba7d2225857c58b46b77149483ffbaf8, type: 3}
   projectilePrefab: {fileID: 7251063228940515721, guid: 4b269772b2cb2794392488042d83c70c, type: 3}
   explosionPrefab: {fileID: 0}
