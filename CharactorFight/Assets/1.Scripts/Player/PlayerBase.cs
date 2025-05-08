@@ -194,13 +194,16 @@ public class PlayerBase : MonoBehaviour
                 state_time = Time.time + psk.skillList[1].motionTime;
                 StopAndIgnore(true);
                 break;
-            case PlayerState.Skill3:
-                break;
             case PlayerState.Hit:
                 state_time = Time.time + 0.3f;
                 break;
             case PlayerState.Death:
-                state_time = Time.time + 1.0f;
+                state_time = Time.time + 3.0f;
+                StopAndIgnore(true);
+                anim.SetBool(AnimationStrings.isAlive, false);
+                
+                if(curChoice == PlayerChoice.P1) { GameManager.Instance.p2Score++; }
+                else if (curChoice == PlayerChoice.P2) { GameManager.Instance.p1Score++; }
                 break;
             default:
                 break;
@@ -231,21 +234,23 @@ public class PlayerBase : MonoBehaviour
         switch (curPlayerState)
         {
             case PlayerState.Idle:
-                
-                if (IsAlive && pMove.moveInput != Vector2.zero && !pMove.isDoubleTap &&!getKeyIgnore) { PlayerStateStart(PlayerState.Move); }
+                if (!IsAlive) { PlayerStateStart(PlayerState.Death); }
+                else if (IsAlive && pMove.moveInput != Vector2.zero && !pMove.isDoubleTap &&!getKeyIgnore) { PlayerStateStart(PlayerState.Move); }
                 else if (IsAlive && pMove.isDoubleTap && pMove.dashOn) { PlayerStateStart(PlayerState.Dash); if (!pMove.dashOn) { pMove.isDoubleTap = false;} }
                 else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && AtkKey()) { PlayerStateStart(PlayerState.Attack);}
                 else if (IsAlive && !getKeyIgnore && GetCurDirSetAir() && pAtk.canAirAttack && AtkKey()) { PlayerStateStart(PlayerState.AirAttack); }
-                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && Skill1Key()) { PlayerStateStart(PlayerState.Skill1); }
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && Skill1Key() && !psk.skillOn[0]) { PlayerStateStart(PlayerState.Skill1); }
+                
                 //else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.B)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Period)))) { PlayerStateStart(PlayerState.Skill1);}
                 break;
             case PlayerState.Move:
                 pMove.OnMove();
-                if (IsAlive && pMove.moveInput == Vector2.zero && !pMove.isDoubleTap) { PlayerStateStart(PlayerState.Idle); }
+                if (!IsAlive) { PlayerStateStart(PlayerState.Death); }
+                else if (IsAlive && pMove.moveInput == Vector2.zero && !pMove.isDoubleTap) { PlayerStateStart(PlayerState.Idle); }
                 else if (IsAlive && pMove.isDoubleTap && !getKeyIgnore && pMove.dashOn) { PlayerStateStart(PlayerState.Dash); if (!pMove.dashOn) { pMove.isDoubleTap = false; } }
                 else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && AtkKey()) { PlayerStateStart(PlayerState.Attack); }
                 else if (IsAlive && !getKeyIgnore && GetCurDirSetAir() && pAtk.canAirAttack && AtkKey()) { PlayerStateStart(PlayerState.AirAttack); }
-                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && Skill1Key()) { PlayerStateStart(PlayerState.Skill1); }
+                else if (IsAlive && !getKeyIgnore && GetCurDirSetGround() && Skill1Key() && !psk.skillOn[0]) { PlayerStateStart(PlayerState.Skill1); }
                 //else if (IsAlive && !getKeyIgnore && ((PlayerChoice.P1 == curChoice && Input.GetKeyDown(KeyCode.B)) || (PlayerChoice.P2 == curChoice && Input.GetKeyDown(KeyCode.Period)))) { PlayerStateStart(PlayerState.Skill1); }
                 break;
             case PlayerState.Dash:
@@ -284,10 +289,13 @@ public class PlayerBase : MonoBehaviour
                 }
                 break;
             case PlayerState.Skill1:
-                
-
                 if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput == Vector2.zero) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
                 if (IsAlive && Time.time > state_time && !pMove.isDoubleTap && pMove.moveInput != Vector2.zero) { PlayerStateStart(PlayerState.Move); StopAndIgnore(false); break; }
+                break;
+            case PlayerState.Death:
+                StopAndIgnore(true);
+                if (!IsAlive && Time.time > state_time && (GameManager.Instance.p1Score < GameManager.Instance.endScore && GameManager.Instance.p2Score < GameManager.Instance.endScore)) { GameManager.Instance.Restart(); break; }
+                if (IsAlive) { PlayerStateStart(PlayerState.Idle); StopAndIgnore(false); break; }
                 break;
             default:
                 break;

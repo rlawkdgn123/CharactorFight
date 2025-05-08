@@ -15,9 +15,9 @@ MonoBehaviour:
   skillName: Zoro-Skill1(Main)
   skillNum: 0
   skillIcon: {fileID: 21300000, guid: fca201e5ba4948d4f992361e6b45a42d, type: 3}
-  cooldown: 10
-  manaCost: 300
-  damage: 300
+  cooldown: 7
+  manaCost: 350
+  damage: 350
   attackSpeed: 0
   range: 0
   spawnEffect: 1

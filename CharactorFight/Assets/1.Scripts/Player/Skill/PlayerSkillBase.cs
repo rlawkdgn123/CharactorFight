@@ -105,7 +105,7 @@ public class PlayerSkillBase : MonoBehaviour
             {
                 Debug.Log("스킬사용 2");
                 skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
-                anim.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
+                anim.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
                  pm.SubCurMana(skillList[selectedSkillIndex].manaCost); // 마나 소모량에 따라 감소
                 StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
             }
@@ -126,7 +126,7 @@ public class PlayerSkillBase : MonoBehaviour
             {
                 Debug.Log("스킬사용 1");
                 skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
-                anim.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
+                anim.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
                 pm.SubCurMana(skillList[selectedSkillIndex].manaCost); // 마나 소모량에 따라 감소
                 StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
             }
@@ -158,12 +158,12 @@ public class PlayerSkillBase : MonoBehaviour
                     GameObject spawnEffect = Instantiate(skillList[selectedSkillIndex].spawnEffectPrefab, new Vector3(spawnPosition.x - 2, spawnPosition.y, 0), Quaternion.identity);
                     Vector3 localScale = spawnEffect.transform.localScale;
                     spawnEffect.transform.localScale *= (-1);
-                    Destroy(spawnEffect, 1f);
+                    Destroy(spawnEffect, 0.4f);
                     }
                 else
                 {
                     GameObject spawnEffect = Instantiate(skillList[selectedSkillIndex].spawnEffectPrefab, new Vector3(spawnPosition.x + 2, spawnPosition.y, 0), Quaternion.identity);
-                    Destroy(spawnEffect, 1f);
+                    Destroy(spawnEffect, 0.4f);
                 }
             }
             skill.GetComponent<PlayerSkill>().player = player;

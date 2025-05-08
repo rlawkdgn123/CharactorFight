@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2be10e1bc653d4caea537b6ab75380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDmg: 75
-  chargeMana: 75
+  attackDmg: 80
+  chargeMana: 80
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2be10e1bc653d4caea537b6ab75380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDmg: 25
-  chargeMana: 25
+  attackDmg: 40
+  chargeMana: 40
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
@@ -1391,8 +1391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2be10e1bc653d4caea537b6ab75380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDmg: 50
-  chargeMana: 50
+  attackDmg: 60
+  chargeMana: 60
   knockback: {x: 2.25, y: 2}
   player: {fileID: 0}
   pMana: {fileID: 0}
